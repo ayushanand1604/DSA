@@ -518,3 +518,23 @@ int main() {
     
 }
 }
+// DESIGNER PDF VIEWER
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+   string s;
+   int h[26];
+   for(int i=0;i<26;i++){
+       cin>>h[i];}
+       cin>>s;
+       int max=0;
+       for(char c:s){
+           int x=c-'a';
+           if(h[x]>max){
+               max=h[x];}
+       }
+   
+    cout<< s.length()*max<<endl;
+
+}
