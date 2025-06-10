@@ -124,11 +124,30 @@
 // .....
 // .....
 // z=122
+// #include <iostream>
+// using namespace std;
+// int main(){
+//     char ch;
+//     cin>>ch;
+//     cout<<(int)ch;
+//     return 0;
+// }
 #include <iostream>
 using namespace std;
-int main(){
-    char ch;
-    cin>>ch;
-    cout<<(int)ch;
-    return 0;
+
+int main() {
+ int n;
+ cin>>n;
+ int num=n;
+ int rev=0;
+ while(num>0){
+     rev=rev*10+num%10;
+     num=num/10;
+ }
+ if(rev==n){
+     cout<<"yes";
+ }
+ else{
+     cout<<"no";
+ }
 }

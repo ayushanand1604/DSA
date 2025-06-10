@@ -493,3 +493,28 @@ int main() {
         }
    }
 }
+// Service Lane
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    // your code goes here
+    int n,t;
+    cin>>n>>t;
+    int arr[n];
+    for(int x=0;x<n;x++){
+        cin>>arr[x];
+    }
+    for(int a=0;a<t;a++){
+    int i,j;
+    cin>>i>>j;
+    int min=arr[i];
+    for(int x=i;x<=j;x++){
+        if(arr[x]<min){
+            min=arr[x];
+        }
+    }
+    cout<<min<<endl;
+    
+}
+}
