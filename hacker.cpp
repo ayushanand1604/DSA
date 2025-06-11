@@ -538,3 +538,58 @@ int main() {
     cout<< s.length()*max<<endl;
 
 }
+// Taum Birthday Problem
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+    for(int i=0;i<t;i++) {
+        long long b,w,bc,wc,z;
+        cin >>b>>w>>bc>>wc>>z;
+        if (bc+z < wc) {
+            cout << bc*b+(bc+z)*w<<endl;
+        } 
+        else if (wc+z < bc) {
+            cout<<(wc+z)*b+wc*w<<endl;
+        }
+         else {
+            cout<<bc*b+wc*w<<endl;
+        }
+    }
+    return 0;
+}
+// Equalise the array
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+ vector<int>arr(n);
+ for(int i=0;i<n;i++){
+     cin>>arr[i];
+ }
+ map<int,int>num;
+ for(int i=0;i<arr.size();i++){
+     num[arr[i]]++;
+ }
+ int highestrepeat=arr[0];
+ int max=num[highestrepeat];
+ for(auto it:num){
+     if(it.second>max){
+        max=it.second;
+         highestrepeat=it.first;
+     }
+ }
+ int count=0;
+  for(int i=0;i<arr.size();i++){
+     if(arr[i]!=highestrepeat){
+         count++;
+     }
+ }
+
+ cout<<count<<endl;
+ return 0;
+}
