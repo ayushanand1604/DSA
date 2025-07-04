@@ -593,3 +593,31 @@ int main() {
  cout<<count<<endl;
  return 0;
 }
+// halloween sale
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int p,d,m,s;
+    cin>>p>>d>>m>>s;
+    int fp;
+    int sum=0;
+    int count1=0;
+    while(p>=m){
+        sum=sum+p;
+        if(sum<s){
+            count1++;
+        }
+        fp=p-d;
+        p=fp;
+        
+    }
+    while(sum<=s){
+        sum=sum+m;
+        if(sum<=s){
+            count1++;
+        }
+    }
+    cout<<count1<<endl;
+
+
+}
