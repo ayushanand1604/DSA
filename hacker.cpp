@@ -621,3 +621,31 @@ int main() {
 
 
 }
+// Sherlock and Squares
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int q;
+    cin>>q;
+    for(int x=0;x<q;x++){
+        int a,b;
+        cin>>a>>b;
+        int count;
+        float lowerlimit=sqrt(a);
+        float upperlimit=sqrt(b);
+        int z= lowerlimit;
+        int y= upperlimit;
+        if(((z-lowerlimit)==0)||((y-upperlimit)==0)){
+            count=(upperlimit-lowerlimit)+1;
+        }
+        else if(((z-lowerlimit)!=0)&&((y-upperlimit)!=0)){
+            count=y-z;
+        }
+        else{
+            count=ceil(upperlimit-lowerlimit);
+        }
+        cout<<count<<endl;
+    }
+  return 0;
+}
