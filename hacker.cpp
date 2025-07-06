@@ -649,3 +649,46 @@ int main() {
     }
   return 0;
 }
+// Time in words
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+string timeInWords(int h, int m) {
+    vector<string> nums = {
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen",
+        "twenty", "twenty one", "twenty two", "twenty three", "twenty four", "twenty five", "twenty six",
+        "twenty seven", "twenty eight", "twenty nine"
+    };
+
+    if (m == 0) {
+        return nums[h] + " o' clock";
+    } else if (m == 15) {
+        return "quarter past " + nums[h];
+    } else if (m == 30) {
+        return "half past " + nums[h];
+    } else if (m == 45) {
+        return "quarter to " + nums[(h % 12) + 1];
+    } else if (m < 30) {
+        if (m == 1) {
+            return nums[m] + " minute past " + nums[h];
+        } else {
+            return nums[m] + " minutes past " + nums[h];
+        }
+    } else { // m > 30
+        if (60 - m == 1) {
+            return nums[60 - m] + " minute to " + nums[(h % 12) + 1];
+        } else {
+            return nums[60 - m] + " minutes to " + nums[(h % 12) + 1];
+        }
+    }
+}
+
+int main() {
+    int h, m;
+    cin >> h >> m;
+    cout << timeInWords(h, m) <<endl;
+    return 0;
+}
