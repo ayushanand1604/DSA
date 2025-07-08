@@ -692,3 +692,28 @@ int main() {
     cout << timeInWords(h, m) <<endl;
     return 0;
 }
+// Jumping on the clouds
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int count=0;
+    int i=0;
+    while(i<n-1){
+        if(arr[i+2]==0&&i+2<n){
+            i=i+2;
+        }
+        else{
+            i=i+1;
+        }
+        count++;
+    }
+    cout<<count;
+
+}
