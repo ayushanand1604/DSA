@@ -741,7 +741,7 @@ int main() {
             while (i >= m) {
                 a = i % m;      
                 b = i / m;    
-                count += b;
+                count =count+ b;
                 i = a + b;     
             }
             cout << count + z << endl;
