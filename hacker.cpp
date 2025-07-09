@@ -717,3 +717,36 @@ int main() {
     cout<<count;
 
 }
+// Chocolate Feast
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    for (int y = 0; y < t; y++) {
+        int n, c, m;
+        cin >> n >> c >> m;
+
+        int z = n / c;   
+        int count = 0;
+        int a, b;
+        int i = z;
+
+        if (z < m) {
+            cout << z << endl;
+        } else {
+            while (i >= m) {
+                a = i % m;      
+                b = i / m;    
+                count += b;
+                i = a + b;     
+            }
+            cout << count + z << endl;
+        }
+    }
+
+    return 0;
+}
