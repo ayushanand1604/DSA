@@ -750,3 +750,29 @@ int main() {
 
     return 0;
 }
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n,k,i,j,x;
+    cin>>n>>k;
+    int page = 1;
+    int count=0;
+    for (i=1 ; i<=n ; i++) {
+        cin>>x;
+        for (j=1 ; j<=x ; j++) {
+            if (page == j){
+            count++;
+            }
+            if (j % k == 0) {
+                page++;
+            }
+        }
+        if (x % k != 0) {
+            page++;
+        }
+        
+    }
+    cout<<count;
+    return 0;
+}
