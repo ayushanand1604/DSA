@@ -797,3 +797,41 @@ int main() {
     }
     return 0;
 }
+// Jumping of the Cloud Revisted 
+#include <iostream>
+using namespace std;
+int main(){
+    int n,k;
+    cin>>n>>k;
+    int e=100;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int i=0;
+    i=i+k;
+    if(n==k){
+        if(arr[i%n]==0){
+            e=e-1;
+        }
+        else if(arr[i%n]==1){
+            e=e-3;
+        }
+        
+    }
+    else{while(i!=0){
+        if(arr[i%n]==0){
+            e=e-1;
+        }
+        else if(arr[i%n]==1){
+            e=e-3;
+        }
+        i=i+k;
+        i=i%n;
+    }
+    if(arr[i]==0)e=e-1;
+    if(arr[i]==1)e=e-3;}
+    cout<<e;
+    
+
+}
