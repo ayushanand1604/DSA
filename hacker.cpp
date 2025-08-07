@@ -835,3 +835,30 @@ int main(){
     
 
 }
+// ENCRYPTION
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s;
+    getline(cin,s);
+    s.erase(remove(s.begin(), s.end(), ' '), s.end());
+    int l=s.length();
+    float z=sqrt(l);
+    int rows=floor(z);
+    int column=ceil(z);
+    if (rows * column < l){
+        rows++;
+    }
+    for (int i = 0; i<column; i++) {
+        for (int j = 0; j<rows; j++) {
+            int index = j*column+i;
+            if (index < (l)){
+                cout << s[index];
+            }
+        }
+        cout << " ";
+    }
+
+    return 0;
+}
