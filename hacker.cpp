@@ -888,3 +888,54 @@ for(int i=0;i<n-1;i++){
      cout<<count;
  }
 }
+// Beautiful Triplets
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n,d;
+    cin>>n>>d;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    sort(arr.begin(),arr.end());
+    int count=0;
+    for(int i=0;i<n;i++){
+        int a=arr[i];
+        int b=a+d;
+        int c=a+2*d;
+            if (binary_search(arr.begin(), arr.end(), b) &&
+            binary_search(arr.begin(), arr.end(), c)) {
+            count++;
+        }
+    }
+    cout<<count<<endl;
+
+
+}
+// Jumping on the Clouds
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int count=0;
+    int i=0;
+    while(i<n-1){
+        if(arr[i+2]==0&&i+2<n){
+            i=i+2;
+        }
+        else{
+            i=i+1;
+        }
+        count++;
+    }
+    cout<<count;
+
+}
