@@ -939,3 +939,33 @@ int main() {
     cout<<count;
 
 }
+// Picking Numbers
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+   int n;
+   cin>>n;
+   vector<int> arr(n);
+   for(int i=0;i<n;i++){
+       cin>>arr[i];
+   }
+   sort(arr.begin(),arr.end());
+   int maxcount=0;
+   for(int i=0;i<n;i++){
+    int currentcount=1;
+       for(int j=i+1;j<n;j++){
+           if(abs(arr[i]-arr[j])<=1){
+               currentcount++;
+           }
+           else{
+            break;
+           }
+       }
+       if (currentcount > maxcount) {
+            maxcount=currentcount;
+        }
+   }
+    cout<<maxcount<<endl;
+    return 0;
+}
