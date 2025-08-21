@@ -969,3 +969,28 @@ int main() {
     cout<<maxcount<<endl;
     return 0;
 }
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    // //vector is dynamic,resize.
+    // vector<int>vec;
+    // vec.push_back(3);
+    // vec.push_back(6);
+    // vec.push_back(23);
+    // vec.push_back(10);
+    // vec.emplace_back(19);
+    // cout<<vec.size()<<" ";
+    // sort(vec.begin(),vec.end());
+    // for(int val: vec){
+    //     cout<<val<<" ";
+    // }
+    // cout<<"val at index 2 "<<vec[2]<<" or "<<vec.at(2)<<endl;
+    // cout<<" value at front "<<vec.front()<<endl;
+    // cout<<"value at back "<<vec.back()<<endl;
+    vector<int> arr(3,12);
+    for(int val:arr){
+        cout<<val<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
