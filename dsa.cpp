@@ -154,46 +154,46 @@ int main()
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
-    // //vector is dynamic,resize.
-    // vector<int>vec;
-    // vec.push_back(3);
-    // vec.push_back(6);
-    // vec.push_back(23);
-    // vec.push_back(10);
-    // vec.emplace_back(19);
-    // cout<<vec.size()<<" ";
-    // sort(vec.begin(),vec.end());
-    // for(int val: vec){
-    //     cout<<val<<" ";
-    // }
-    // cout<<"val at index 2 "<<vec[2]<<" or "<<vec.at(2)<<endl;
-    // cout<<" value at front "<<vec.front()<<endl;
-    // cout<<"value at back "<<vec.back()<<endl;
-    // vector<int> arr(3,12);
-    // for(int val:arr){
-    //     cout<<val<<" ";
-    // }
-    // cout<<endl;
-    // vector <int> vec1={1,2,3,4,5};
-    // vector <int> vec2(vec1);
-    // for(int val:vec2){
-    //     cout<<val<<" ";
-    // }
-    // vector <int> vec1={1,2,3,4,5};
-    // //vec1.erase(vec1.begin()+2);
-    // vec1.erase(vec1.begin()+1,vec1.begin()+4);
-    //  for(int val:vec1){
-    //     cout<<val<<" ";
-    // }
-    // vector <int> vec={1,2,3,4,5};
-    // vec.insert(vec.begin()+2,100);
-    // //vec.clear();
-    //  for(int val:vec){
-    //     cout<<val<<" ";
-    // }
-    // vector <int> vec={1,2,3,4,5};
-    // cout<<"vec.end :  "<<*(vec.begin())<<endl;
-    // cout<<"vec.end :  "<<*(vec.end())<<endl;
+    //vector is dynamic,resize.
+    vector<int>vec;
+    vec.push_back(3);
+    vec.push_back(6);
+    vec.push_back(23);
+    vec.push_back(10);
+    vec.emplace_back(19);
+    cout<<vec.size()<<" ";
+    sort(vec.begin(),vec.end());
+    for(int val: vec){
+        cout<<val<<" ";
+    }
+    cout<<"val at index 2 "<<vec[2]<<" or "<<vec.at(2)<<endl;
+    cout<<" value at front "<<vec.front()<<endl;
+    cout<<"value at back "<<vec.back()<<endl;
+    vector<int> arr(3,12);
+    for(int val:arr){
+        cout<<val<<" ";
+    }
+    cout<<endl;
+    vector <int> vec1={1,2,3,4,5};
+    vector <int> vec2(vec1);
+    for(int val:vec2){
+        cout<<val<<" ";
+    }
+    vector <int> vec1={1,2,3,4,5};
+    //vec1.erase(vec1.begin()+2);
+    vec1.erase(vec1.begin()+1,vec1.begin()+4);
+     for(int val:vec1){
+        cout<<val<<" ";
+    }
+    vector <int> vec={1,2,3,4,5};
+    vec.insert(vec.begin()+2,100);
+    //vec.clear();
+     for(int val:vec){
+        cout<<val<<" ";
+    }
+    vector <int> vec={1,2,3,4,5};
+    cout<<"vec.end :  "<<*(vec.begin())<<endl;
+    cout<<"vec.end :  "<<*(vec.end())<<endl;
     vector<int> vec={1,2,3,4,5};
     vector<int>::iterator it;
     for(it=vec.begin();it!=vec.end();it++){
