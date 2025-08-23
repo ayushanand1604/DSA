@@ -205,3 +205,197 @@ int main(){
     }
     return 0;
 }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     deque<int> l;
+//     l.push_back(1);
+//     l.push_back(2);
+//     l.push_front(3);
+//     l.push_front(5);
+//     for(int val:l){
+//         cout<<val<<" ";
+//     }
+//     cout<<endl;
+//     cout<<l[2]<<endl;
+    
+//     return 0;
+// }
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    // pair<int , int> p={1,5};
+    // pair<int,pair<char,int>>p={1,{'a',3}};
+    // cout<<p.first<<endl;
+    // cout<<p.second.first<<endl;
+    // cout<<p.second.second<<endl;
+    vector<pair<int,int>> vec={{1,2},{2,3},{4,5}};
+    vec.push_back({4,5}); // insert
+    vec.emplace_back(6,7);// in-place objects create
+    //vec.emplace_back(4,5);
+    for(auto p: vec){
+        cout<<p.first<<" "<<p.second<<endl;
+    }
+    return 0;
+}
+
+
+// stack
+#include <bits/stdc++.h>
+ using namespace std;
+// We only remove or insert only from top
+int main(){
+    stack<int> s;
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    stack<int> s2;
+    s2.swap(s);
+    cout<<s.size()<<endl;
+    cout<<s2.size()<<endl;
+    cout<<s.top()<<endl;
+    while(!s.empty()){
+        cout<<s.top()<<endl;
+        s.pop();
+    }
+   cout<<endl;
+    return 0;
+}
+
+//  Queue
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    // queue<int> q;
+    // q.push(1);
+    // q.push(2);
+    // q.push(3);
+    // cout<<q.front()<<endl;
+    // while(!q.empty()){
+    //     cout<<q.front()<<" ";
+    //     q.pop();
+    // }
+    priority_queue<int> q;
+    q.push(5);
+    q.push(3);
+    q.push(10);
+    q.push(4);
+    while(!q.empty()){
+        cout<<q.top()<<" ";
+        q.pop();
+    }
+return 0;
+}
+
+
+//map
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main(){
+//      map<string,int> m;
+//     //m[key]=value (insert,change)
+//     m["tv"]=100;
+//     m["laptop"]=39;
+//     m["headphones"]=50;
+//     m.emplace("camera",25);
+//     for(auto p:m){
+//         cout<<p.first<<" "<<p.second;
+//     }
+//     cout<<m.count("laptop")<<endl;
+//     cout<<m["laptop"]<<endl;
+//     // it always come in sorted 
+//     if(m.find("camera")!=m.end()){
+//         cout<<"found\n";
+//     }
+//     else{
+//         cout<<"not found\n";
+//     }
+// return 0;
+// }
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    multimap<string ,int> m;
+    m.emplace("tv",100);
+    m.emplace("tv",100);
+    m.emplace("tv",100);
+    m.emplace("tv",100);
+    for(auto p:m){
+        cout<<p.first<<" "<<p.second<<endl;
+    }
+    cout<<endl;
+    m.erase(m.find("tv"));
+    for(auto p:m){
+        cout<<p.first<<" "<<p.second<<endl;
+    }
+}
+
+//sets
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+//     // unique value, sorted 
+//     //0(logn)
+//     // multiset can be used to get 1 or more unique values
+// set <int> s;
+// s.insert(1);
+// s.insert(0);
+//  s.insert(4);
+//  s.insert(2);
+// s.insert(5);
+//     s.insert(6);
+//     cout<<s.size()<<endl;
+//     cout<<*s.lower_bound(3)<<endl;
+//     cout<<*s.upper_bound(3)<<endl;
+// for(auto val: s){
+//     cout<<val<<" ";
+// } 
+//     cout<<endl;
+// SORTING
+    // sort(arr,arr+n)
+    int arr[5]={3,5,1,8,2};
+    sort(arr,arr+5);
+    for(int val:arr){
+        cout<<val<<" ";
+    }
+    cout<<endl;
+    vector<int> vec={3,5,1,8,2};
+   // sort(vec.begin(),vec.end());
+    sort(vec.begin(),vec.end(),greater<int>());// for reverse order
+    for(int val:vec){
+        cout<<val<<" ";
+    }
+    cout<<endl;
+    
+}
+
+
+#include <bits/stdc++.h>
+using namespace std;
+// bool comparator(pair<int,int> p1,pair<int ,int> p2){
+//     if(p1.second<p2.second) return true;
+//         if(p1.second>p2.second) return false;
+//             if(p1.first<p2.first) return true;
+//     else return false;
+// }
+// int main(){
+//     vector<pair<int,int>>vec={{3,1},{2,1},{7,1},{5,2}};
+//     sort(vec.begin(),vec.end(),comparator);
+//     for(auto p:vec){
+//         cout<<p.first<<" "<<p.second<<endl;
+//     }
+//     return 0;
+// }
+int main(){
+    // vector<int> vec={1,2,3,4,5};
+    // reverse(vec.begin(),vec.end());
+    // for(auto val:vec){
+    //     cout<<val<<endl;
+    // }
+    cout<<max(4,5)<<" "<<min(6,7)<<endl;
+    int a=5,b=10;
+    swap(a,b);
+    cout<<a<<" "<<b;
+    return 0;
+}
