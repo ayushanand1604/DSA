@@ -969,28 +969,37 @@ int main() {
     cout<<maxcount<<endl;
     return 0;
 }
+
+// Cut the sticks
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
-    // //vector is dynamic,resize.
-    // vector<int>vec;
-    // vec.push_back(3);
-    // vec.push_back(6);
-    // vec.push_back(23);
-    // vec.push_back(10);
-    // vec.emplace_back(19);
-    // cout<<vec.size()<<" ";
-    // sort(vec.begin(),vec.end());
-    // for(int val: vec){
-    //     cout<<val<<" ";
-    // }
-    // cout<<"val at index 2 "<<vec[2]<<" or "<<vec.at(2)<<endl;
-    // cout<<" value at front "<<vec.front()<<endl;
-    // cout<<"value at back "<<vec.back()<<endl;
-    vector<int> arr(3,12);
-    for(int val:arr){
-        cout<<val<<" ";
+int n;
+cin>>n;
+int arr[n];
+for(int i=0;i<n;i++){
+cin>>arr[i];
+}
+while(true){
+    int count=0;
+    int min=INT_MAX;
+    for(int i=0;i<n;i++){
+        if(arr[i]>0){
+            count++;
+            if((min>arr[i])){
+                min=arr[i];
+            }
+        }
     }
-    cout<<endl;
-    return 0;
+    if(count==0){
+        break;
+    }
+    cout<<count<<endl;
+    for(int i=0;i<n;i++){
+        if(arr[i]>0){
+            arr[i]=arr[i]-min;    
+        }
+    }    
+}
+return 0;
 }
