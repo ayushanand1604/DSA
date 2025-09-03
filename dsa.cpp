@@ -387,15 +387,47 @@ using namespace std;
 //     }
 //     return 0;
 // }
+// int main(){
+//     // vector<int> vec={1,2,3,4,5};
+//     // reverse(vec.begin(),vec.end());
+//     // for(auto val:vec){
+//     //     cout<<val<<endl;
+//     // }
+//     cout<<max(4,5)<<" "<<min(6,7)<<endl;
+//     int a=5,b=10;
+//     swap(a,b);
+//     cout<<a<<" "<<b;
+//     return 0;
+// }
+// binary search
+#include <iostream>
+#include <vector>
+using namespace std;
+bool binary(vector<int>v,int key){
+    int low=0;
+    int high=v.size()-1;
+    while(low<=high){
+        int mid=((high-low)/2)+low;
+        if(v[mid]==key){
+            return true;
+        }
+        if(v[mid]>key){
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }    
+    }
+    return false;
+}
 int main(){
-    // vector<int> vec={1,2,3,4,5};
-    // reverse(vec.begin(),vec.end());
-    // for(auto val:vec){
-    //     cout<<val<<endl;
-    // }
-    cout<<max(4,5)<<" "<<min(6,7)<<endl;
-    int a=5,b=10;
-    swap(a,b);
-    cout<<a<<" "<<b;
-    return 0;
+    vector<int> v={1,2,3,4,5,6,7,8,9};
+    int key;
+    cin>>key;
+    if(binary(v,key)){
+        cout<<key<<" found";
+    }
+    else{
+        cout<<key<<"not found";
+    }
 }

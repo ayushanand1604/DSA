@@ -94,16 +94,73 @@
 //     cout<<fact;
 //     return 0;
 // }
+// #include <iostream>
+// using namespace std;
+// int main(){
+//     int n;
+//     cout<<"Enter the value of n:";
+//     cin>>n;
+//     int fact=1;
+//     for(int i=1;i<=n;i++){
+//         fact=fact*i;
+//         cout<<fact<<endl;
+//     }
+//     return 0;
+// }
+// binary search
 #include <iostream>
+#include <vector>
+using namespace std;
+bool binary(vector<int>v,int key){
+    int low=0;
+    int high=v.size()-1;
+    while(low<=high){
+        int mid=((high-low)/2)+low;
+        if(v[mid]==key){
+            return true;
+        }
+        if(v[mid]>key){
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }    
+    }
+    return false;
+}
+int main(){
+    vector<int> v={1,2,3,4,5,6,7,8,9};
+    int key;
+    cin>>key;
+    if(binary(v,key)){
+        cout<<key<<" found";
+    }
+    else{
+        cout<<key<<"not found";
+    }
+}
+// binary search
+#include <bits/stdc++.h>
 using namespace std;
 int main(){
-    int n;
-    cout<<"Enter the value of n:";
-    cin>>n;
-    int fact=1;
-    for(int i=1;i<=n;i++){
-        fact=fact*i;
-        cout<<fact<<endl;
+    vector<int> v={1,2,3,4,5,6};
+    int target=25;
+    int low=0;
+    int high=v.size()-1;
+    while(low<=high){
+        int mid=((high-low)/2)+low;
+        if(v[mid]==target){
+            cout<<target<<" found";
+            break;
+            return 0;
+        }
+        if(v[mid]>target){
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }
     }
+    cout<<target<<" not found";
     return 0;
 }

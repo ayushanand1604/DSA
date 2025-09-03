@@ -838,7 +838,6 @@ int main(){
 // ENCRYPTION
 #include <bits/stdc++.h>
 using namespace std;
-
 int main() {
     string s;
     getline(cin,s);
@@ -859,7 +858,6 @@ int main() {
         }
         cout << " ";
     }
-
     return 0;
 }
 // Fair Rations
