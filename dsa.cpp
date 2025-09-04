@@ -431,3 +431,29 @@ int main(){
         cout<<key<<"not found";
     }
 }
+// square root through binary method
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    long long  n;
+    cin>>n;
+    long long low=1;
+    long long high=n;
+    long long ans;
+    while(low<=high){
+        long long mid=((high-low)/2)+low;
+        if((mid*mid)==n){
+            cout<<mid<<endl;
+            return 0;
+        }
+        if((mid*mid)<n){
+            ans=mid;
+            low=mid+1;
+        }
+        else{
+            high=mid-1;
+        }
+    }
+    cout<<ans;
+    
+}
