@@ -457,3 +457,27 @@ int main(){
     cout<<ans;
     
 }
+// Search insert by loop method
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    vector<int> v={1,3,5,6};
+    int key=4;
+    for(int i=0;i<v.size();i++){
+        if(key<v[0]){
+            cout<<"0";
+            break;
+        }
+        else if(key==v[i]){
+            cout<<i;
+        }
+        else if((v[i]<key)&&(v[i+1]>key&&((i+1)<v.size()))){
+            cout<<i+1;
+        }
+        else if(key>v[v.size()-1]){
+            cout<<v.size();
+            break;
+        }
+    }
+    return 0;
+}
