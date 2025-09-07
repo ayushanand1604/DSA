@@ -481,3 +481,62 @@ int main(){
     }
     return 0;
 }
+
+
+// lower and upper bound
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    vector<int>v={1,2,8,10,10,12,19};
+    int key=-100;
+    int low=0;
+    int high=v.size()-1;
+    while(low<=high){
+        int mid=((high-low)/2)+low;
+        if((v[mid]<key)&&(v[mid+1]>key)){
+            cout<<mid;
+            break;
+            return 0;
+        }
+        if(key>v[v.size()-1]){
+            cout<<v.size()-1;
+            break;
+            return 0;
+        }
+        if(key<v[0]){
+            cout<<"-1";
+            return 0;
+        }
+        if(v[mid]>key){
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }
+    }
+    return 0;
+}
+// First and lastr occurence through loop method
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int n;
+cin>>n;
+vector<int> arr(n);
+for(int i=0;i<n;i++){
+    cin>>arr[i];
+}
+int key;
+cin>>key;
+int first=-1;
+int last=-1;
+ for(int i=0;i<n;i++){
+    if(arr[i]==key){
+        if(first==-1){
+            first=i;
+        }
+        last=i;
+    }
+ }
+ cout<<first<<" "<<last;
+}
