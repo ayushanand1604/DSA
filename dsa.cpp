@@ -516,7 +516,7 @@ int main(){
     }
     return 0;
 }
-// First and lastr occurence through loop method
+// First and last occurence through loop method
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
@@ -539,4 +539,45 @@ int last=-1;
     }
  }
  cout<<first<<" "<<last;
+}
+// First and last occurence through binary search method
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    vector<int> v={1,3,5,5,5,5,67,123,125};
+    int target=7;
+    int low=0;
+    int high=v.size()-1;
+    int first=-1;
+    int last=-1;
+    while(low<=high){
+        int mid=((high-low)/2)+low;
+        if(v[mid]==target){
+            first=mid;
+            high=mid-1;
+        }
+        if(v[mid]>target){
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }
+    }
+    low=0;
+    high=v.size()-1;
+    while(low<=high){
+        int mid=((high-low)/2)+low;
+        if(v[mid]==target){
+            last=mid;
+            low=mid+1;
+        }
+        if(v[mid]>target){
+            high=mid-1;
+        }
+        else{
+            low=mid+1;
+        }
+    }
+    cout<<first<<" "<<last;
+    return 0;
 }
