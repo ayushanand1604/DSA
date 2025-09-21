@@ -581,3 +581,41 @@ int main(){
     cout<<first<<" "<<last;
     return 0;
 }
+// kako bananas greeks for greeks
+class Solution {
+  public:
+    bool check(vector<int>& arr, int mid, int k) {
+    int hours = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        if(arr[i]<=mid){
+          hours++;
+        }
+        else{
+          if (arr[i] % mid == 0)
+            hours += arr[i] / mid;
+        else
+            hours += arr[i] / mid + 1;
+    }
+        }
+    if(hours <= k){
+      return true;
+    }
+  return false;
+}
+    int kokoEat(vector<int>& arr, int k) {
+        sort(arr.begin(),arr.end());
+        int low= 1;
+        int high = arr.back();
+        int minmhour = high;
+        while (low<= high) {
+        int mid = low+ (high - low) / 2;
+        if (check(arr, mid, k)) {
+            minmhour = mid;       
+            high = mid - 1;
+        } else {
+            low = mid + 1;    
+        }
+    }
+    return minmhour;   
+    }
+};
