@@ -156,28 +156,46 @@
 //     (n%2==0)?cout<<"The number is even":cout<<"The number is odd";
 //     return 0;
 // }
+// #include <iostream>
+// using namespace std;
+// int main(){
+//     int a,b,choice,result;
+//     cout<<"Enter the value of a:";
+//     cin>>a;
+//     cout<<"Enter the value of b:";
+//     cin>>b;
+//     cout<<"1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n";
+//     cin>>choice;
+//     switch(choice){
+//         case 1:result=a+b;
+//         break;
+//         case 2:result=a-b;
+//         break;
+//         case 3:result=a*b;
+//         break;
+//         case 4:result=a/b;
+//         break;
+//         default:cout<<"Invalid choice";
+//         break;
+//     }
+//     cout<<"The result is: "<<result;
+//     return 0;
+// }
 #include <iostream>
 using namespace std;
 int main(){
-    int a,b,choice,result;
-    cout<<"Enter the value of a:";
-    cin>>a;
-    cout<<"Enter the value of b:";
-    cin>>b;
-    cout<<"1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n";
-    cin>>choice;
-    switch(choice){
-        case 1:result=a+b;
-        break;
-        case 2:result=a-b;
-        break;
-        case 3:result=a*b;
-        break;
-        case 4:result=a/b;
-        break;
-        default:cout<<"Invalid choice";
-        break;
+    int arr[6]={9,63,34,10,5,6};
+    int max=arr[0];
+    for(int i=0;i<6;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
     }
-    cout<<"The result is: "<<result;
-    return 0;
+    int secondmax=0;
+    for(int i=0;i<6;i++){
+        if((arr[i]>secondmax)&&((arr[i])!=max)){
+            secondmax=arr[i];
+        }
+    }
+    cout<<secondmax;
 }

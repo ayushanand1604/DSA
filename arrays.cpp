@@ -246,7 +246,7 @@ int main(){
             cin>>arr[i][j];
         }
     }
-  int sum1=0;
+    int sum1=0;
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             if(i==j){
@@ -267,4 +267,23 @@ int main(){
             cout<<num;
  return 0;
 
+}
+// Second largest element
+#include <iostream>
+using namespace std;
+int main(){
+    int arr[6]={9,63,34,10,5,6};
+    int max=arr[0];
+    for(int i=0;i<6;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
     }
+    int secondmax=0;
+    for(int i=0;i<6;i++){
+        if((arr[i]>secondmax)&&((arr[i])!=max)){
+            secondmax=arr[i];
+        }
+    }
+    cout<<secondmax;
+}
