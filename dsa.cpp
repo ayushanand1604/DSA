@@ -812,3 +812,26 @@ public:
         return j;
     }
 };
+// majority element leetcode
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int count=1;
+        int max=1;
+        int j=nums[0];
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]==nums[i-1]){
+                count++;
+            }
+            else{
+                count=1;
+            }
+            if(count>max){
+                max=count;
+                j=nums[i];
+            }
+        }
+    return j;
+    }
+};
