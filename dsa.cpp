@@ -799,3 +799,16 @@ public:
         return max;
     }
 };
+// kth largets number leetcode 
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
+        int n=nums.size();
+        int j;
+        if(k<=n){
+            j=nums[n-k];
+        }
+        return j;
+    }
+};
