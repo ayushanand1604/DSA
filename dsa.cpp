@@ -862,3 +862,23 @@ class Solution {
         return ans;
     }
 };
+// linked list insertion gfg
+class Solution {
+  public:
+    Node *insertAtEnd(Node *head, int x) {
+        // Code here
+        Node *newNode= new Node();
+        newNode->data=x;
+        newNode->next=NULL;
+        if(head==NULL){
+            head=newNode;
+            return head;
+        }
+        Node *current=head;
+        while(current->next !=NULL){
+            current=current->next;
+        }
+        current->next=newNode;
+        return head;
+    }
+};
