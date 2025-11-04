@@ -848,3 +848,17 @@ class Solution {
         return count;
     }
 };
+// printing of element of linked list gfg
+class Solution {
+  public:
+    vector<int> printList(Node *head) {
+        // code here
+        Node *current=head;
+        vector<int> ans;
+        while(current!=NULL){
+            ans.push_back(current->data);
+            current=current->next;
+        }
+        return ans;
+    }
+};
