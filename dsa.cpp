@@ -882,3 +882,44 @@ class Solution {
         return head;
     }
 };
+// First and last occurence leetcode
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int low=0;
+        int high=nums.size()-1;
+        int first=-1;
+        int last=-1;
+        vector<int> ans={-1,-1};
+        while(low<=high){
+            int mid=((high-low)/2)+low;
+            if(nums[mid]==target){
+                first=mid;
+                high=mid-1;
+            }
+            else if(nums[mid]>target){
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        ans[0]=first;    
+        low=0;
+        high=nums.size()-1;    
+        while(low<=high){
+            int mid=((high-low)/2)+low;
+            if(nums[mid]==target){
+                last=mid;
+                low=low+1;
+            }
+            else if(nums[mid]>target){
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        ans[1]=last;
+        return ans;
+    }
