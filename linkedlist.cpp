@@ -1,0 +1,74 @@
+// Function for printing linked list
+class Solution {
+  public:
+    vector<int> printList(Node *head) {
+        Node *current=head;
+        vector<int> ans;
+        while(current!=NULL){
+            ans.push_back(current->data);
+            current=current->next;
+        }
+        return ans;
+    }
+};
+// Function for finding the length of linked list
+class Solution {
+  public:
+    int getCount(Node* head) {
+        Node* current=head;
+        int count=0;
+        while(current!=NULL){
+            count++;
+            current=current->next;
+        }
+        return count;
+    }
+};
+// Function for inserting at the end of linked list
+class Solution {
+  public:
+    Node *insertAtEnd(Node *head, int x) {
+        Node *newNode= new Node();
+        newNode->data=x;
+        newNode->next=NULL;
+        if(head==NULL){
+            head=newNode;
+            return head;
+        }
+        Node *current=head;
+        while(current->next !=NULL){
+            current=current->next;
+        }
+        current->next=newNode;
+        return head;
+    }
+};
+// Functions for searching elements in a linked list
+class Solution {
+  public:
+    bool searchKey(Node* head, int key) {
+        // Code here
+        Node *current=head;
+        while(current!=NULL){
+            if(current->data==key){
+                return true;
+            }
+            current=current->next;
+        }
+        return false;
+    }
+};
+// Functions for deleting the first element in a linked list
+class Solution {
+  public:
+    Node *deleteHead(Node *head) {
+        // code here
+        if(head==NULL){
+            return NULL;
+        }
+        Node* current=head;
+        head=head->next;
+        delete current;
+        return head;
+    }
+};
