@@ -340,3 +340,36 @@ class Solution {
         return false;
     }
 };
+// Product array puzzle gfg
+class Solution {
+  public:
+    vector<int> productExceptSelf(vector<int>& arr) {
+        // code here
+        int n=arr.size();
+        int arr1[n];
+        int arr2[n];
+        long num1=1;
+        long num2=1;
+        for(int i=0;i<arr.size();i++){
+            num1=num1*arr[i];
+            arr1[i]=num1;
+        }
+        for(int i=arr.size()-1;i>=0;i--){
+            num2=num2*arr[i];
+            arr2[i]=num2;
+        }
+        vector<int> arr3(n,0);
+        for(int i=0;i<arr3.size();i++){
+            if(i==0){
+                arr3[i] = arr2[i+1];
+            }
+            else if(i==n-1){
+                arr3[i]=arr1[i-1];
+            }
+            else{
+                arr3[i]=arr1[i-1]*arr2[i+1];
+            }
+        }    
+        return arr3;
+    }
+};
