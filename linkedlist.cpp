@@ -72,3 +72,21 @@ class Solution {
         return head;
     }
 };
+// delete a given node in linkedlist leetcode
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+       node->val=node->next->val;
+       ListNode* dummy=node->next;
+       node->next=dummy->next;
+       delete dummy;
+    }
+};
