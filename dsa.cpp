@@ -923,35 +923,30 @@ public:
         ans[1]=last;
         return ans;
     }
-
-    // minimum time complete trip leetcode
-    class Solution { 
+// Minimum time to complete trips leetcode
 public:
-    bool test(vector<int>& time, int mid, int totalTrips) {
+    bool test(vector<int>& time, long long mid, int totalTrips) {
     long long trips = 0;
     for (int i = 0; i < time.size(); i++) {
         trips=trips+mid/time[i];
-    }
-    if(trips>=totalTrips){
-      return true;
+        if(trips>=totalTrips){
+            return true;
+        }
     }
     return false;
     }
     long long minimumTime(vector<int>& time, int totalTrips) {
         sort(time.begin(),time.end());
-        int low= 1;
-        int high = time.back();
-        int minmtime = high;
-        while (low<= high) {
-        int mid = low + (high-low) / 2;
-        if (test(time, mid, totalTrips)) {
-            minmtime = mid;       
+        long long low= 1;
+        long long high = 1E18;
+        while (low<=high) {
+        long long mid = low+(high-low)/2;
+        if (test(time, mid, totalTrips)) {     
             high = mid - 1;
         } 
         else {
             low = mid + 1;    
         }
     }
-    return minmtime;   
+    return low; 
     }
-};
