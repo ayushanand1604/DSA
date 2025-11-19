@@ -90,3 +90,21 @@ public:
        delete dummy;
     }
 };
+// return index value of a linked list gfg
+class Solution {
+  public:
+    int GetNth(Node *head, int index) {
+        // Code Here
+        if(index<1||head==NULL){
+            return -1;
+        }
+        Node *current=head;
+        for(int i=1;i<index;i++){
+            if(current->next==NULL){
+                return -1;
+            }
+            current=current->next;
+        }
+        return current->data;
+    }
+};
