@@ -108,3 +108,24 @@ class Solution {
         return current->data;
     }
 };
+// Detect Knth code from end gfg
+class Solution {
+  public:
+    int getKthFromLast(Node* head, int k) {
+        // code here
+        int count=0;
+        Node* current=head;
+        while(current!=NULL){
+            current=current->next;
+            count++;
+        }
+        if(count<k){
+            return -1;
+        }
+        current = head;
+        for(int i=1;i<count-k+1;i++){
+            current=current->next;
+        }
+        return current->data;
+    }
+};
