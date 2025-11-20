@@ -112,7 +112,7 @@ class Solution {
 class Solution {
   public:
     int getKthFromLast(Node* head, int k) {
-        // code here
+        
         int count=0;
         Node* current=head;
         while(current!=NULL){

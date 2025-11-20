@@ -373,3 +373,19 @@ class Solution {
         return arr3;
     }
 };
+// Adding one gfg 
+class Solution {
+  public:
+    vector<int> addOne(vector<int>& arr) {
+        // code here
+        for(int i=arr.size()-1;i>=0;i--){
+            if(arr[i]<9){
+                arr[i]+=1;
+                return arr;
+            }
+            arr[i]=0;
+        }
+        arr.insert(arr.begin(),1);
+        return arr;
+    }
+};
