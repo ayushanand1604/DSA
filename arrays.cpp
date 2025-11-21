@@ -389,3 +389,37 @@ class Solution {
         return arr;
     }
 };
+//Given an array arr[] consisting of only 0’s and 1’s, return count of the maximum number of consecutive 1’s or 0’s present in the array. 
+class Solution {
+  public:
+    int maxConsecBits(vector<int> &arr) {
+        // code here
+        int countone=0;
+        int countzero=0;
+        int count1=0;
+        int count0=0;
+        for(int i=0;i<arr.size();i++){
+            if(arr[i]==1){
+                count1++;
+                count0=0;
+                
+            }
+            else if(arr[i]==0){
+                count1=0;
+                count0++;
+            }
+            if(countone<count1){
+                countone=count1;
+            }
+            if(countzero<count0){
+                countzero=count0;
+            }
+        }
+        if(countone>countzero){
+            return countone;
+        }
+        else{
+            return countzero;
+        }
+    }
+};
