@@ -268,25 +268,7 @@ int main(){
  return 0;
 
 }
-// Second largest element
-#include <iostream>
-using namespace std;
-int main(){
-    int arr[6]={9,63,34,10,5,6};
-    int max=arr[0];
-    for(int i=0;i<6;i++){
-        if(arr[i]>max){
-            max=arr[i];
-        }
-    }
-    int secondmax=0;
-    for(int i=0;i<6;i++){
-        if((arr[i]>secondmax)&&((arr[i])!=max)){
-            secondmax=arr[i];
-        }
-    }
-    cout<<secondmax;
-}
+     
 // remove duplicates from sorted array leetcode
 class Solution {
 public:
@@ -421,5 +403,25 @@ class Solution {
         else{
             return countzero;
         }
+    }
+};
+// second largest element gfg
+class Solution {
+  public:
+    int getSecondLargest(vector<int> &arr) {
+        // code here
+        int max=INT_MIN;
+        for(int i=0;i<arr.size();i++){
+            if(arr[i]>max){
+                max=arr[i];
+            }
+        }
+        int secondlargest=INT_MIN;
+        for(int i=0;i<arr.size();i++){
+            if((arr[i]!=max)&&(arr[i]>secondlargest)){
+                secondlargest=arr[i];
+            }
+        }
+        return secondlargest;
     }
 };
