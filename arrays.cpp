@@ -425,3 +425,22 @@ class Solution {
         return secondlargest;
     }
 };
+// Leaders in array
+lass Solution {
+    // Function to find the leaders in the array.
+  public:
+    vector<int> leaders(vector<int>& arr) {
+        // Code here
+        vector<int> ans;
+        int maxm=arr[arr.size()-1];
+        ans.push_back(maxm);
+        for(int i=arr.size()-2;i>=0;i--){
+            if(arr[i]>=maxm){
+                maxm=arr[i];
+                ans.push_back(arr[i]);
+            }
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
