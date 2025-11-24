@@ -444,3 +444,29 @@ lass Solution {
         return ans;
     }
 };
+// Majority element in array gfg
+class Solution {
+  public:
+    int majorityElement(vector<int>& arr) {
+        // code here
+        int x=arr.size()/2;
+        map<int,int> m;
+        int value=0;
+        for(int i=0;i<arr.size();i++){
+            m[arr[i]]++;
+        }
+        int max=INT_MIN;
+        for(auto it:m){
+            if(it.second>max){
+                max=it.second;
+                value=it.first;
+            }
+        }
+        if(max>x){
+            return value;
+        }
+        else{
+            return -1;
+        }
+    }
+};
