@@ -129,3 +129,25 @@ class Solution {
         return current->data;
     }
 };
+// find the occurances in linked list
+class Solution {
+  public:
+    int count(struct Node* head, int key) {
+        // add your code here
+        if(head==NULL){
+            return NULL;
+        }
+        Node* current=head;
+        int count=0;
+        while(current!=NULL){
+            if(current->data==key){
+                count++;
+                current=current->next;
+            }
+            else{
+                current=current->next;
+            }
+        }
+        return count;
+    }
+};
