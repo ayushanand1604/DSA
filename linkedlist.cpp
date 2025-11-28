@@ -151,3 +151,21 @@ class Solution {
         return count;
     }
 };
+// Check whether is a doubly linked list or not gfg
+class Solution {
+  public:
+    bool isCircular(Node *head) {
+        // Your code here
+        if(head==NULL){
+            return true;
+        }
+        Node *current=head;
+        while(current && current->next != head){
+        current=current->next;
+        }
+        if(current==NULL){
+            return false;
+        }
+        return true;
+    }
+};
