@@ -169,3 +169,30 @@ class Solution {
         return true;
     }
 };
+// Remove kth node from end Linked List gfg
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        int count=0;
+        ListNode* current=head;
+        while(current!=nullptr){
+            current=current->next;
+            count++;
+        }
+        if(n==count){
+            ListNode* current=head;
+            head=head->next;
+            delete current;
+            return head;
+        }
+        current=head;
+        for(int i=1;i<count-n;i++){
+            current=current->next;
+        }
+        ListNode* dummy=current->next;
+        current->next=dummy->next;
+        delete dummy;
+        return head;
+    }
+
+};
