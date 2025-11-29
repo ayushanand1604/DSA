@@ -470,3 +470,20 @@ class Solution {
         }
     }
 };
+removes duplicates from array gfgclass Solution {
+  public:
+    // Function to remove duplicates from the given array.
+    vector<int> removeDuplicates(vector<int> &arr) {
+        // code here
+        int i = 1;
+        vector<int>ans;
+        ans.push_back(arr[0]);
+        while(i<arr.size()) {
+            if(arr[i]!=arr[i - 1]) {
+                ans.push_back(arr[i]);
+            }
+            i++;
+        }
+        return ans;
+    }
+};
