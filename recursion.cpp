@@ -97,3 +97,15 @@ int main(){
 //     greet()
 
 // }
+// print 1 to n using recursive function gfg
+class Solution {
+  public:
+    void printTillN(int n) {
+        // code here
+        if(n==0){
+            return;
+        }
+        printTillN(n-1);
+        cout<<n<<" ";
+    }
+};
