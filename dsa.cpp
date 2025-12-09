@@ -1011,3 +1011,26 @@ public:
         return count;
     }
 };
+// pairwiseconsecutive gfg
+// your task is to complete the function
+// function should return true/false or 1/0
+bool pairWiseConsecutive(stack<int> s) {
+    // Code here
+    int n = s.size();
+    if (n%2!=0) {
+        s.pop();
+        n--;
+    }
+    int i=0;
+    while(i<n){
+        int a=s.top();
+        s.pop();
+        int b=s.top();
+        s.pop();
+        if(abs(a-b)!=1){
+            return false;
+        }
+        i=i+2;
+    }
+    return true;
+}
