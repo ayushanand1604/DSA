@@ -1034,3 +1034,25 @@ bool pairWiseConsecutive(stack<int> s) {
     }
     return true;
 }
+// sort array by parity leetcode
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>ans(n);
+        int index=0;
+        for(int i=0;i<nums.size();i++){
+            if((nums[i]%2)==0){
+                ans[index]=nums[i];
+                index++;
+            }        
+        }
+        for(int i=0;i<nums.size();i++){
+            if((nums[i]%2)!=0){
+                ans[index]=nums[i];
+                index++;
+            }        
+        }
+        return ans;
+    }
+};
