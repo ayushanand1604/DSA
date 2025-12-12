@@ -130,3 +130,33 @@ int main() {
     }
     return 0;
 }
+//By ayush_anand123, contest: Codeforces Round 806 (Div. 4), problem: (B) ICPC Balloons
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        int seen[26]={0};
+        int balloons=0;
+ 
+        for(int i=0;i<s.length();i++){
+            int index=s[i]-'A';
+            if(seen[index]==0){
+                balloons+=2;
+                seen[index]=1;
+            } 
+            else{
+                balloons+=1;
+            }
+        }
+ 
+        cout<<balloons<<endl;
+    }
+    return 0;
+}
