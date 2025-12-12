@@ -78,3 +78,32 @@ int main() {
 	}
     return 0;
 }
+// By ayush_anand123, contest: Codeforces Round 790 (Div. 4), problem: (B) Equal Candies
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int min=INT_MAX;
+    for(int i=0;i<n;i++){
+        if(a[i]<min){
+            min=a[i];
+        }
+    }
+    int sum=0;
+    for(int i=0;i<n;i++){
+        sum+=(a[i]-min);
+    }
+    cout<<sum<<endl;
+	}
+    return 0;
+}
