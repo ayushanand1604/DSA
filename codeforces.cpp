@@ -107,3 +107,26 @@ int main() {
 	}
     return 0;
 }
+//By ayush_anand123, contest: Codeforces Round 806 (Div. 4), problem: (A) YES or YES?
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        for(int i=0;i<s.length();i++){
+            s[i]=tolower(s[i]);
+        }
+        if(s=="yes"){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
