@@ -43,3 +43,38 @@ int main() {
     cout<<endl;
     }
 }
+//By ayush_anand123, contest: Codeforces Round 790 (Div. 4), problem: (A) Lucky?
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+    int n;
+    cin>>n;
+    int last=0;
+    int first=0;
+    int count1=0;
+    while(n>0){
+        if(count1<3){
+            last=last+n%10;
+            count1++;
+            n=n/10;
+            
+        }
+        else{
+           first=first+n%10;
+           n=n/10;
+        }
+    }
+    if(last==first){
+        cout<<"YES"<<endl;
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
+	}
+    return 0;
+}
