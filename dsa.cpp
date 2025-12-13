@@ -1072,3 +1072,44 @@ public:
         return b;
     }
 };
+// arranging coins leetcode
+class Solution {
+public:
+    int arrangeCoins(int n){
+        long low=1;
+        long high=n;
+        while(low<=high){
+            long mid=(high-low)/2+low;
+            long rows=mid*(mid+1)/2;
+            if(rows==n){
+                return mid;
+            }
+            else if(rows<n){
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return high;
+    }
+};
+// difference between element sum and digit sum
+class Solution {
+public:
+    int differenceOfSum(vector<int>& nums) {
+        int n=nums.size();
+        int elementsum=0;
+        int digitsum=0;
+        for(int i=0;i<n;i++){
+            elementsum+=nums[i];
+            int num=nums[i];
+            while(num>0){
+                digitsum+=num%10;
+                num=num/10;
+            }
+        }
+        int y=abs(elementsum-digitsum);
+        return y;
+    }
+};
