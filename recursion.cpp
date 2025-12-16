@@ -121,3 +121,17 @@ class Solution {
         printNos(N-1);
     }
 };
+// sum of elements in an array gfg using recursion
+class Solution {
+  public:
+    // Function to return sum of elements
+    int arraySum(vector<int>& arr) {
+        // code here
+        int n=arr.size();
+        if(n==0){
+            return 0;
+        }
+        arr.pop_back();
+        return arr[n-1]+arraySum(arr);
+    }
+};
