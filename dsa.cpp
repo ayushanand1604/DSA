@@ -1157,3 +1157,26 @@ public:
         return false;
     }
 };
+// missing and repeating 
+class Solution {
+  public:
+    vector<int> findTwoElement(vector<int>& arr) {
+        // code here
+        int n=arr.size();
+        vector<int> ans(n+1,0);
+        for(int i=0;i<n;i++){
+            ans[arr[i]]++;
+        }
+        int missing=-1;
+        int repeating=-1;
+        for(int i=1;i<=n;i++){
+            if(ans[i]==0){
+                missing=i;
+            }
+            else if(ans[i]==2){
+                repeating=i;
+            }
+        }
+        return {repeating,missing};
+    }   
+};
