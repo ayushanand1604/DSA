@@ -1196,3 +1196,27 @@ public:
         return count;
     }
 };
+// missing and repeating leetcode
+class Solution {
+public:
+    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& arr) {
+        int n=arr.size();
+        vector<int> ans(n*n+1,0);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                ans[arr[i][j]]++;
+            }    
+        }
+        int missing=-1;
+        int repeating=-1;
+        for(int i=1;i<=n*n;i++){
+            if(ans[i]==0){
+                missing=i;
+            }
+            else if(ans[i]==2){
+                repeating=i;
+            }
+        }
+        return {repeating,missing};
+    }
+};
