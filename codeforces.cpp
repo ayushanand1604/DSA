@@ -160,3 +160,35 @@ int main() {
     }
     return 0;
 }
+//By ayush_anand123, contest: Codeforces Round 898 (Div. 4), problem: (B) Good Kid
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        int min=INT_MAX;
+        int index=-1;
+        for(int i=0;i<n;i++){
+            if(a[i]<min){
+                min=a[i];
+                index=i;
+            }
+        }
+        a[index]+=1;
+        int product=1;
+        for(int i=0;i<n;i++){
+            product*=a[i];
+        }
+        cout<<product<<endl;
+    }
+    return 0;
+} 
