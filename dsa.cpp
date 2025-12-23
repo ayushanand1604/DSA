@@ -1278,3 +1278,31 @@ public:
         return nums[index];
     }
 };
+// Pair Sum Closest to 0 GFG
+class Solution {
+  public:
+    int closestToZero(int arr[], int n) {
+        // your code here
+        sort(arr,arr+n);
+        int left=0;
+        int right=n-1;
+        int ans=arr[left]+arr[right];
+        while(left<right){
+            int sum=arr[left]+arr[right];
+            if(abs(sum)<abs(ans)||((abs(ans)==abs(sum))&&(sum>ans))){
+                ans=sum;
+            }
+            if(sum==0){
+                return 0;
+            }
+            else if(sum<0){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        return ans;
+    }
+};
+
