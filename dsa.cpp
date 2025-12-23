@@ -1262,3 +1262,19 @@ public:
         return count;
     }
 };
+// 2239. Find Closest Number to Zero leetcode
+class Solution {
+public:
+    int findClosestNumber(vector<int>& nums) {
+        int ans=abs(nums[0]-0);
+        int index;
+        for(int i=1;i<nums.size();i++){
+            int diff=abs((nums[i])-0);
+            if(diff<ans||((diff==ans)&&(nums[i]>nums[index]))){
+                ans=diff;
+                index=i;
+            }
+        }
+        return nums[index];
+    }
+};
