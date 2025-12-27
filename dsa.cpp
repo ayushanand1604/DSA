@@ -1316,7 +1316,7 @@ public:
         return ans;
     }
 };
-// first string palindrome in string
+// first string palindrome in string leetcode
 class Solution {
 public:
     string firstPalindrome(vector<string>& words) {
@@ -1327,6 +1327,18 @@ public:
                 return words[i];
             }
         return "";
+    }
+};
+// 709. To Lower Case leetcode
+class Solution {
+public:
+    string toLowerCase(string s) {
+        for(int i=0;i<s.length();i++){
+            if(isupper(s[i])){
+                s[i]=tolower(s[i]);
+            }
+        }
+        return s;
     }
 };
 
