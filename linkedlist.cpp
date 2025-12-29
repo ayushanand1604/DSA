@@ -239,3 +239,25 @@ public:
         return head;
     }
 };
+// Insertion in doubly linked list gfg 
+class Solution {
+  public:
+    Node *insertAtPos(Node *head, int p, int x) {
+        // code here
+        Node *newNode=new Node(x);
+        if(head==nullptr){
+            return newNode;
+        }
+        Node *temp=head;
+        for(int i=0;i<p&&temp!=nullptr;i++){
+            temp=temp->next;
+        }
+        newNode->next=temp->next;
+        newNode->prev=temp;
+        if(temp->next!=nullptr){
+            temp->next->prev=newNode;
+        }
+        temp->next=newNode;
+        return head;
+    }
+};
