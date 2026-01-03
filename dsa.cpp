@@ -1405,3 +1405,63 @@ public:
         return prod;    
     }
 };
+// two pointers basic 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> arr = {9, 6, 7, 9, 12, 15, 8};
+    int a = 0, b = 0;
+    int i = 0, j = arr.size() - 1;
+    int turn=1;
+    while (i <= j) {
+        int pick;
+        if (arr[i] >= arr[j]) {
+            pick = arr[i];
+            i++;
+        } else {
+            pick = arr[j];
+            j--;
+        }
+        if(turn==1){
+            a+=pick;
+        }
+        else{
+            b+=pick;
+        }
+        if(turn==1)turn=0;
+        else turn=1;
+    }
+
+    cout << a << endl;
+    cout << b << endl;
+    return 0;
+}
+int main() {
+    vector<int> arr = {9, 6, 7, 9, 12, 15, 8};
+
+    int a = 0, b = 0;
+    int i = 0, j = arr.size() - 1;
+    bool aterm=true;
+    while (i <= j) {
+        int pick;
+        if (arr[i] >= arr[j]) {
+            pick = arr[i];
+            i++;
+        } else {
+            pick = arr[j];
+            j--;
+        }
+        if(aterm){
+            a+=pick;
+        }
+        else{
+            b+=pick;
+        }
+        aterm=!aterm;
+    }
+
+    cout << a << endl;
+    cout << b << endl;
+    return 0;
+}
