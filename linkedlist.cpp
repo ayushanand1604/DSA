@@ -261,3 +261,25 @@ class Solution {
         return head;
     }
 };
+// Remove every kth node from linked list gfg
+class Solution {
+  public:
+    Node* deleteK(Node* head, int k) {
+        // code here
+        if(k<=1)return NULL;
+        Node* current=head;
+        int count=1;
+        Node* prev=NULL;
+        while(current){
+            if((count%k)==0){
+                prev->next=current->next;
+            }
+            else{
+                prev=current;
+            }
+            current=current->next;
+            count++;
+        }
+        return head;
+    }
+};
