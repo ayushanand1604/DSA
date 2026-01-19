@@ -1582,3 +1582,30 @@ public:
         return {};
     }
 };
+// Sum Pair closest to target GFG
+class Solution {
+  public:
+    vector<int> sumClosest(vector<int>& arr, int target) {
+        // code here
+        sort(arr.begin(),arr.end());
+        int i=0;
+        int j=arr.size()-1;
+        int minm=INT_MAX;
+        vector<int>ans(2);
+        if(arr.size()<2){
+            return {};
+        }
+        while(i<j){
+            int sum=arr[i]+arr[j];
+            int diff=abs(sum-target);
+            if(diff<minm){
+                minm=diff;
+                ans[0]=arr[i];
+                ans[1]=arr[j];
+            }
+            else if(sum>target) j--;
+            else i++;
+        }
+        return ans;
+    }
+};
