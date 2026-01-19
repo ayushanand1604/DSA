@@ -126,3 +126,14 @@ cout<<max(5,10)<<endl;
 cout<<min(5,10)<<endl;
 return 0;
 }
+// Chessboard string leetcode
+class Solution {
+public:
+    bool squareIsWhite(string s) {
+        if((s[1]%2!=0)&&((s[0]=='a')||(s[0]=='c')||(s[0]=='e')||(s[0]=='g'))) return false;
+        else if((s[1]%2==0)&&((s[0]=='b')||(s[0]=='d')||(s[0]=='f')||(s[0]=='h'))) return false;
+        else if((s[1]%2==0)&&((s[0]=='a')||(s[0]=='c')||(s[0]=='e')||(s[0]=='g'))) return true;
+        else if((s[1]%2!=0)&&((s[0]=='b')||(s[0]=='d')||(s[0]=='f')||(s[0]=='h'))) return true;
+        return true;
+    }
+};
