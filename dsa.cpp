@@ -1545,7 +1545,7 @@ public:
         return low;
     }
 };
-// Maximum subarray of size k
+// Maximum subarray of size k gfg
 class Solution {
   public:
     int maxSubarraySum(vector<int>& arr, int k) {
@@ -1607,5 +1607,30 @@ class Solution {
             else i++;
         }
         return ans;
+    }
+};
+// container with most water leetcode & gfg
+ class Solution {
+  public:
+    int maxWater(vector<int> &arr) {
+        // code here
+        int i=0;
+        int j=arr.size()-1;
+        int maxm=0;
+        while(i<j){
+            int hold=0;
+            if(arr[i]<=arr[j]){
+                 hold=arr[i]*(j-i);
+                i++;
+            }
+            else if(arr[i]>arr[j]){
+                 hold=arr[j]*(j-i);
+                j--;
+            }
+            if(hold>maxm){
+                maxm=hold;
+            }
+        }
+        return maxm;
     }
 };
