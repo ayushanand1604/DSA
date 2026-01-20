@@ -17,3 +17,22 @@ int main() {
     }
     return 0;
 }
+// unique number of ocuurens leetcode using map ans set
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        map<int,int>mpp;
+        for(int i=0;i<arr.size();i++){
+            mpp[arr[i]]++;   
+        }
+        unordered_set<int>set;
+        for(auto it:mpp){
+            int freq=it.second;
+            set.insert(freq);
+        }
+        if(set.size()==mpp.size()){
+            return true;
+        }
+        return false;
+    }
+};
