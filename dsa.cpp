@@ -1647,3 +1647,28 @@ public:
         return ans;
     }
 };
+// 1423. Maximum Points You Can Obtain from Cards leetcode
+class Solution {
+public:
+    int maxScore(vector<int>& arr, int k) {
+        int maxScore=0;
+        int sum=0;
+        int j=arr.size()-1;
+        for(int i=0;i<k;i++){
+            sum+=arr[i];
+        }
+        if(k==arr.size()){
+            return sum;
+        }
+        else{
+            maxScore=sum;
+            for(int i=k-1;i>=0;i--){
+                sum=sum-arr[i];
+                sum=sum+arr[j];
+                maxScore=max(maxScore,sum);
+                j--;
+            }
+        }    
+        return maxScore;
+    }
+};
