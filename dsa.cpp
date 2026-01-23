@@ -1672,3 +1672,21 @@ public:
         return maxScore;
     }
 };
+// 2824. Count Pairs Whose Sum is Less than Target leetcode
+class Solution {
+public:
+    int countPairs(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+        int i=0;
+        int j=nums.size()-1;
+        int count=0;
+        while(i<j){
+            if(nums[i]+nums[j]>=target) j--;
+            else{
+                count=count+(j-i);
+                i++;
+            }
+        }
+        return count;       
+    }
+};
