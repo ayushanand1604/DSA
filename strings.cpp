@@ -137,3 +137,14 @@ public:
         return true;
     }
 };
+// reverse of words in a string leetcode
+class Solution {
+public:
+    string reverseWords(string s) {
+        string result;
+        for(int i=s.size()-1;i>=0;i--){
+            result=result+s[i];
+        }
+        return result;
+    }
+};
