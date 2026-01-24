@@ -314,3 +314,34 @@ class Solution {
         return false;;
     }
 };
+// pairwise swap in linkedlist gfg
+class Solution {
+  public:
+    Node *pairwiseSwap(Node *head) {
+        // code here
+        if(head==NULL||head->next==NULL){
+            return head;
+        }
+        Node* prev=NULL;
+        Node* cur=head;
+        int index = 1;
+        while(cur!=NULL&&cur->next!=NULL){
+            if(index%2==1){
+                Node* ans=cur->next;
+                cur->next=ans->next;
+                ans->next=cur;
+                if(prev!=NULL){
+                    prev->next=ans;
+                }
+                else{
+                    head=ans;
+                    
+                }
+                prev=cur;
+                cur=cur->next;
+                index+=2;
+            }
+        }
+        return head;
+    }    
+};
