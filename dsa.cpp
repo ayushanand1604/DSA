@@ -1690,3 +1690,30 @@ public:
         return count;       
     }
 };
+// 682. Baseball Game leetcode
+class Solution {
+public:
+    int calPoints(vector<string>& str) {
+        vector<int>ans;
+        int sum=0;
+        for(int i=0;i<str.size();i++){
+            if(str[i]=="+"){
+                int n=ans.size();
+                ans.push_back(ans[n-1]+ans[n-2]);
+            }
+            else if(str[i]=="D"){
+                ans.push_back(2*ans.back());
+            }
+            else if(str[i]=="C"){
+                ans.pop_back();
+            }
+            else{
+                ans.push_back(stoi(str[i]));
+            }
+        }
+        for(int i=0;i<ans.size();i++){
+            sum+=ans[i];
+        }
+        return sum;
+    }
+};
