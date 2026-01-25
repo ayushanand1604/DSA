@@ -36,3 +36,25 @@ public:
         return false;
     }
 };
+//Count distinct elements in every window gfg
+class Solution {
+  public:
+    vector<int> countDistinct(vector<int> &arr, int k) {
+        // code here
+        unordered_map<int,int>mpp;
+        vector<int>ans;
+        for(int i=0;i<k;i++){
+            mpp[arr[i]]++;
+        }
+        ans.push_back(mpp.size());
+        for(int i=k;i<arr.size();i++){
+            mpp[arr[i-k]]--;
+            if(mpp[arr[i-k]]==0){
+                mpp.erase(arr[i-k]);
+            }
+            mpp[arr[i]]++;
+            ans.push_back(mpp.size());
+        }
+        return ans;
+    }
+};
