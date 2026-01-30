@@ -1759,3 +1759,23 @@ public:
         return count;
     }
 };
+// triplet sum gfg two pointers
+class Solution {
+  public:
+    bool hasTripletSum(vector<int> &arr, int target) {
+        // Code Here
+        int n=arr.size();
+        sort(arr.begin(),arr.end());
+        for(int i=0;i<n-2;i++){
+            int low=i+1;
+            int high=n-1;
+            int need=target-arr[i];
+            while(low<high) {
+                if(arr[low]+arr[high]==need) return true;
+                if(arr[low]+arr[high]<need) low++;
+                else if(arr[low]+arr[high]>need) high--;
+            }   
+        } 
+        return false;
+    }
+};
