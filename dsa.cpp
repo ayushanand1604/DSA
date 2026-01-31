@@ -1789,7 +1789,7 @@ public:
         int ans=0;
         while(low<=high){
             int mid=((high-low)/2)+low;
-            if(mid <= x / mid){
+            if(mid<=x/mid){
                 ans=mid;
                 low=mid+1;
             }
@@ -1797,6 +1797,24 @@ public:
                 high=mid-1;
             }
         }
+        return ans;
+    }
+};
+// 1441. Build an Array With Stack Operations leetcode 
+class Solution {
+public:
+    vector<string> buildArray(vector<int>& target, int n) {
+        vector<string>ans;
+        int index=0;
+        for(int i=1;i<=n&&index<target.size();i++) {
+            ans.push_back("Push");
+            if(i==target[index]){
+                index++;
+            } 
+            else {
+                ans.push_back("Pop");
+            }
+        }   
         return ans;
     }
 };
