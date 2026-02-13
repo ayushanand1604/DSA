@@ -192,3 +192,32 @@ int main() {
     }
     return 0;
 } 
+//By ayush_anand123, contest: Codeforces Round 481 (Div. 3), problem: (A) Remove Duplicates, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    vector <int> ans;
+    map<int,int> mpp;
+    int x=ans.size();
+    for(int i=n-1;i>=0;i--){
+        if(mpp[arr[i]]==0){
+            ans.push_back(arr[i]);
+            mpp[arr[i]]++;
+        }
+    }
+    reverse(ans.begin(),ans.end());
+    cout<<ans.size()<<endl;
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
+    cout<<endl;
+    return 0;
+}    
