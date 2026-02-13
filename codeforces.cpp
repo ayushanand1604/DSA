@@ -220,4 +220,27 @@ int main() {
     }
     cout<<endl;
     return 0;
-}    
+}
+//By ayush_anand123, contest: Codeforces Round 481 (Div. 3), problem: (B) File Name, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    int count=0;
+    int ans=0;
+    for(int i=0;i<s.size();i++){
+        if(s[i]=='x'){
+            count++;
+            if(count>=3){
+                ans++;
+            }
+        }
+        else count=0;
+    }    
+    cout<<ans;
+}       
