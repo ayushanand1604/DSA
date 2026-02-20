@@ -243,4 +243,35 @@ int main() {
         else count=0;
     }    
     cout<<ans;
-}       
+}
+// By ayush_anand123, contest: Codeforces Round 486 (Div. 3), problem: (A) Diverse Team,
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n,k;
+    cin >>n>>k;
+    vector<int>arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    map<int,int>mpp;
+    vector<int>ans;
+    for(int i=0;i<n;i++){
+        if(mpp.count(arr[i])==0){
+            mpp[arr[i]]=i+1;
+            ans.push_back(i+1);
+        }
+    }
+    if(ans.size()<k){
+        cout<<"NO"<<endl;
+    } 
+    else{
+        cout<<"YES"<<endl;
+        for(int i=0;i<k;i++) {
+            cout<<ans[i]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
