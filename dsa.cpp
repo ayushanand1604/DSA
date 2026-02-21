@@ -1845,3 +1845,21 @@ public:
         return i;
     } 
 };
+// Pairs with difference k
+// User function template for C++
+class Solution {
+  public:
+    /* Returns count of pairs with difference k  */
+    int countPairs(vector<int>& arr, int k) {
+        // code here
+        int count=0; 
+        unordered_map<int,int>mpp; 
+        for(int x:arr){ 
+            mpp[x]++; 
+        } 
+        for(int x:arr){ 
+            count+=mpp[x+k]; 
+        } 
+        return count;
+    }    
+};
