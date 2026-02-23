@@ -135,3 +135,31 @@ class Solution {
         return arr[n-1]+arraySum(arr);
     }
 };
+// product of two numbers
+#include <bits/stdc++.h>
+using namespace std;
+int product(x,y){
+    if(y==0) return 0;
+    return x+product(x,y-1);
+}
+int main(){
+    int a,b;
+    cin>>a>>b;
+    cout<<product(a,b);
+}
+// 3834. Merge Adjacent Equal Elements leetcode
+class Solution {
+public:
+    vector<long long> mergeAdjacent(vector<int>& nums) {
+        vector<long long> ans;
+        for (int i=0;i<nums.size();i++) {
+            long long current = nums[i];
+            while(!ans.empty()&&ans.back()==current){
+                current+=ans.back();
+                ans.pop_back();
+            }
+            ans.push_back(current);
+        }
+        return ans;
+    }
+};
