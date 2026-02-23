@@ -163,3 +163,18 @@ public:
         return ans;
     }
 };
+// 3833. Count Dominant Indices leetcode 
+class Solution {
+public:
+    int dominantIndices(vector<int>& nums) {
+        int count=0;
+        int sum=0;
+        for(int i:nums) sum+=i;
+        for(int i=0;i<nums.size()-1;i++){
+            sum-=nums[i];
+            int x=nums.size()-1-i;
+            if(nums[i]*x>sum) count++;
+        }
+        return count;
+    }
+};
