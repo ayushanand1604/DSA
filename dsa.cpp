@@ -1863,3 +1863,18 @@ class Solution {
         return count;
     }    
 };
+// add of two numbers without using operators leetcode
+class Solution {
+public:
+    int getSum(int a, int b) {
+        int carry=a&b;
+        int sum=a^b;
+        int originalcarry=carry<<1;
+        while(carry!=0){
+            carry=sum & originalcarry;
+            sum=sum^ originalcarry;
+            originalcarry=carry <<1;
+        }
+        return sum;
+    }
+};
