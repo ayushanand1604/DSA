@@ -275,3 +275,25 @@ int main() {
     }
     return 0;
 }
+//By ayush_anand123, contest: Codeforces Round 479 (Div. 3), problem: (B) Two-gram, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    map<string,int>freq;
+    string ans="";
+    int maxmcount=0;
+    for(int i=0;i<n-1;i++){
+        string twogram=s.substr(i,2);
+        freq[twogram]++;
+        if(freq[twogram]>maxmcount) {
+            maxmcount=freq[twogram];
+            ans=twogram;
+        }
+    }
+    cout<<ans<<endl;
+    return 0;
+}
