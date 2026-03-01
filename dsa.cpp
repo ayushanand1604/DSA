@@ -1910,4 +1910,24 @@ public:
         return ans;
     }
 };
-
+//389. Find the Difference leetcode 
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        char ans=0;
+        unordered_map<char,int> mpp;
+        for(int i=0;i<s.size();i++){
+            mpp[s[i]]++;
+        }
+        for(int i=0;i<t.size();i++){
+            if(mpp[t[i]]>0){
+                mpp[t[i]]--;
+            }
+            else {
+                ans=t[i];
+                break;
+            }
+        }
+        return ans;
+    }
+};
