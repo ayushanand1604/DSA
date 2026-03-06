@@ -1931,3 +1931,28 @@ public:
         return ans;
     }
 };
+// 3819. Rotate Non Negative Elements leetcode contest
+class Solution {
+public:
+    vector<int> rotateElements(vector<int>& nums, int k) {
+        vector<int>ans;
+        for (int i=0;i<nums.size();i++){
+            if(nums[i]>=0) ans.push_back(nums[i]);
+        }
+        int n=ans.size();
+        if(n==0) return nums;
+        k=k%n;
+        vector<int>rotate(n);
+        for(int i=0;i<n;i++){
+            rotate[i]=ans[(i+k)%n];
+        }
+        int j=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>=0){
+                nums[i]=rotate[j];
+                j++;
+            }
+        }
+        return nums;
+    }
+};
