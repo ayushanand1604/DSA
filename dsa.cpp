@@ -1956,3 +1956,18 @@ public:
         return nums;
     }
 };
+// 1832. Check if the Sentence Is Pangram
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        vector<bool>ans(26,false);
+        for(char c:sentence) {
+            ans[c -'a']=true;
+        }
+        for(bool letter:ans) {
+            if(letter==false)
+                return false;
+        }
+        return true;
+    }
+};
