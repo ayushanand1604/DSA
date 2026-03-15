@@ -1971,3 +1971,17 @@ public:
         return true;
     }
 };
+// JUMP GAME LEETCODE 55
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int maximumstep=0;
+        for(int i=0;i<nums.size();i++){
+            if(i>maximumstep){
+                return false;
+            }
+            maximumstep=max(maximumstep,i+nums[i]);
+        }
+        return true;
+    }
+};
