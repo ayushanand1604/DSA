@@ -1985,3 +1985,28 @@ public:
         return true;
     }
 };
+// 134. Gas Station leetcode 
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int totalGas=0;
+        int totalCost=0;
+        for(int i:gas){
+            totalGas+=i;
+        }
+        for(int j:cost){
+            totalCost+=j;
+        }
+        if(totalGas<totalCost) return -1;
+        int startIndex=0;
+        int currentCapacity=0;
+        for(int i=0;i<gas.size();i++){
+            currentCapacity+=gas[i]-cost[i];
+            if(currentCapacity<0){
+                startIndex=i+1;
+                currentCapacity=0;
+            }
+        }
+        return startIndex;
+    }
+};
