@@ -2024,3 +2024,22 @@ public:
         return low;
     }
 };
+// 3774. Absolute Difference Between Maximum and Minimum K Elements leetcode 
+class Solution {
+public:
+    int absDifference(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
+        int num1=0;
+        int num2=0;
+        int i=0;
+        int j=nums.size()-1;
+        while(k!=0){
+            num1+=nums[i];
+            num2+=nums[j];
+            i++;
+            j--;
+            k--;
+        }
+        return abs(num1-num2);
+    }
+};
