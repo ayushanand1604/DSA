@@ -2043,3 +2043,14 @@ public:
         return abs(num1-num2);
     }
 };
+// 122. Best Time to Buy and Sell Stock II leetcode
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int maxmProfit=0;
+        for(int i=1;i<prices.size();i++){
+            if(prices[i]>prices[i-1]) maxmProfit+=prices[i]-prices[i-1];
+        }
+        return maxmProfit;
+    }
+};
