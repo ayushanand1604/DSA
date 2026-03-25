@@ -2085,3 +2085,19 @@ public:
         return low;
     }
 };
+// 1295. Find Numbers with Even Number of Digits leetcode
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int evenDigit=0;
+        for(int i:nums){
+            int digitCount=0;
+            while(i>0){
+                digitCount++;
+                i/=10;
+            }
+            if(digitCount%2==0) evenDigit++;
+        }
+        return evenDigit;
+    }
+};
