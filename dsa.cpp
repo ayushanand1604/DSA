@@ -2133,3 +2133,25 @@ public:
         return result;
     }
 };
+// 9. Palindrome Number leetcode
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x<0){
+            return false;
+        }
+        int original=x;
+        long revnum = 0;
+        int digit;
+        while(x!=0){
+            int digit=x%10;
+            revnum=revnum*10+digit;
+            x/=10;
+        }
+        if(revnum==original){
+            return true;
+        }else{
+        return false;
+        }
+    }
+};
