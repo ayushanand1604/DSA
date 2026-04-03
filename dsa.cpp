@@ -2253,3 +2253,22 @@ public:
         return min(ans,clocksum);
     }
 };
+//209. Minimum Size Subarray Sum 
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int i=0;
+        int minimumlength=INT_MAX;
+        int sum=0;
+        for(int j=0;j<nums.size();j++){
+            sum+=nums[j];
+            while(sum>=target){
+                minimumlength=min(minimumlength,j-i+1);
+                sum-=nums[i];
+                i++;
+            }
+        }
+        if(minimumlength==INT_MAX) return 0;
+        return minimumlength;
+    }
+};
