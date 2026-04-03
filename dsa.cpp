@@ -2234,3 +2234,22 @@ public:
         return ans;
     }
 };
+// 1184. Distance Between Bus Stops
+class Solution {
+public:
+    int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
+        int clocksum=0;
+        int totalsum=0;
+        if(start>destination){
+            swap(start,destination);
+        }
+        for(int i=0;i<distance.size();i++){
+            totalsum+=distance[i];
+        }
+        for(int i=start;i<destination;i++){
+            clocksum+=distance[i];
+        }
+        int ans=totalsum-clocksum;
+        return min(ans,clocksum);
+    }
+};
