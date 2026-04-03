@@ -2195,3 +2195,42 @@ public:
         return ans;
     }
 };
+//2148. Count Elements With Strictly Smaller and Greater Elements 
+class Solution {
+public:
+    int countElements(vector<int>& nums) {
+        int count=0;
+        int minimum=INT_MAX;
+        int maximum=INT_MIN;
+        for(int i=0;i<nums.size();i++){
+            minimum=min(minimum,nums[i]);
+            maximum=max(maximum,nums[i]);
+        }
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>minimum&&nums[i]<maximum) count++;
+        }
+        return count;
+    }
+};
+// 2215. Find the Difference of Two Arrays
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        vector<vector<int>>ans(2);
+        map<int,int>mpp1;
+        map<int,int>mpp2;
+        for(int i=0;i<nums1.size();i++){
+            mpp1[nums1[i]]++;
+        }
+        for(int i=0;i<nums2.size();i++){
+            mpp2[nums2[i]]++;
+        }
+        for(auto it:mpp1){
+            if(mpp2[it.first]==0) ans[0].push_back(it.first);
+        }
+        for(auto it:mpp2){
+            if(mpp1[it.first]==0) ans[1].push_back(it.first);
+        }
+        return ans;
+    }
+};
