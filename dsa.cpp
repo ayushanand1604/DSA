@@ -2272,3 +2272,29 @@ public:
         return minimumlength;
     }
 };
+// 2164. Sort Even and Odd Indices Independently
+class Solution {
+public:
+    vector<int> sortEvenOdd(vector<int>& nums) {
+        if(nums.size()<=2) return nums;
+        vector<int>v1;
+        vector<int>v2;
+        for(int i=0;i<nums.size();i++){
+            if(i%2==0) v1.push_back(nums[i]);
+            else v2.push_back(nums[i]);
+        }
+        sort(v1.begin(),v1.end());
+        sort(v2.rbegin(),v2.rend());
+        for(int i=nums.size()-1;i>=0;i--){
+            if(i%2==0){
+                nums[i]=v1.back();
+                v1.pop_back();
+            }
+            else{
+                nums[i]=v2.back();
+                v2.pop_back();
+            }
+        }
+        return nums;
+    }
+};
