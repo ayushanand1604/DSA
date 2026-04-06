@@ -2298,3 +2298,26 @@ public:
         return nums;
     }
 };
+// 1013. Partition Array Into Three Parts With Equal Sum
+class Solution {
+public:
+    bool canThreePartsEqualSum(vector<int>& arr) {
+        int sum=0;
+        for(int i=0;i<arr.size();i++){
+            sum+=arr[i];
+        }
+        if(sum%3!=0) return false;
+        int partitionValue=sum/3;
+        int count=0;
+        int threeSum=0;
+        for(int i:arr){
+            threeSum+=i;
+            if(threeSum==partitionValue){
+                count++;
+                threeSum=0;
+            }
+        }
+        if(count>=3) return true;
+        return false;
+    }
+};
