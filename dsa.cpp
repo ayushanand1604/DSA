@@ -2345,3 +2345,17 @@ public:
         return count;
     }
 };
+1619. Mean of Array After Removing Some Elements
+class Solution {
+public:
+    double trimMean(vector<int>& arr) {
+        int n=arr.size();
+        sort(arr.begin(),arr.end());
+        int remove=n*0.05;
+        double sum=0;
+        for(int i=remove;i<n-remove;i++){
+            sum+=arr[i];
+        }
+        return sum/(n-2*remove);
+    }
+};
