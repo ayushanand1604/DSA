@@ -2359,3 +2359,16 @@ public:
         return sum/(n-2*remove);
     }
 };
+1984. Minimum Difference Between Highest and Lowest of K Scores
+class Solution {
+public:
+    int minimumDifference(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
+        int minimumDifference=INT_MAX;
+        for(int i=0;i<=nums.size()-k;i++){
+            int j=nums.size()-1;
+            minimumDifference=min(minimumDifference,nums[i+k-1]-nums[i]);
+        }
+        return minimumDifference;
+    }
+};
