@@ -2403,3 +2403,45 @@ public:
         return -1;
     }
 };
+
+class Solution {
+public:
+    int myAtoi(string s) {
+        int i=0;
+        int n=s.length();
+        while(i<n&&isspace(s[i])){
+            i++;
+        }
+        if(i==n) return 0;
+        bool negative=false;
+        if(s[i]=='-'){
+            negative=true;
+            i++;
+        }
+        else if(s[i]=='+'){
+            i++;
+        }
+        else if(!isdigit(s[i])){
+            return 0;
+        }
+        if(i==n) return 0;
+        while(i<n&&s[i]=='0'){
+            i++;
+        }
+        if(i==n) return 0;
+        int ans=0;
+        int max=INT_MAX/10;
+        int min=INT_MIN/10;
+        while(i<n&&isdigit(s[i])){
+            int digit=s[i]-'0';
+            if(ans>max) return INT_MAX;
+            else if(ans==max&&digit>7) return INT_MAX;
+            if(ans<min) return INT_MIN;
+            else if(ans==min&&digit>8) return INT_MIN;             
+            if(negative) ans=ans*10+(-digit);
+            else ans=ans*10+digit;
+            i++;
+        }
+        return ans;
+    }
+};
