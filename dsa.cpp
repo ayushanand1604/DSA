@@ -2403,7 +2403,7 @@ public:
         return -1;
     }
 };
-
+LEETCODE  STOI 
 class Solution {
 public:
     int myAtoi(string s) {
@@ -2484,5 +2484,18 @@ public:
             else q.pop();
         }
         return -1;
+    }
+};
+2784. Check if Array is Good
+class Solution {
+public:
+    bool isGood(vector<int>& nums) {
+        int n=nums.size();
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<n-1;i++){
+            if(nums[i]!=i+1) return false;
+        }
+        if(nums[n-1]!=n-1) return false;
+        return true;
     }
 };
