@@ -2559,3 +2559,29 @@ public:
         return ans;
     }
 };
+1089. Duplicate Zeros
+class Solution {
+public:
+    void duplicateZeros(vector<int>& arr) {
+        int n=arr.size();
+        int zeros=0;
+        for(int i:arr){
+            if(i==0) zeros++;
+        }
+        int i=n-1;
+        int j=n+zeros-1;
+        while(i<j){
+            if(j<n){
+                arr[j]=arr[i];
+            }
+            j--;
+            if(arr[i]==0){
+                if(j<n){
+                    arr[j]=arr[i];
+                }
+                j--;
+            }
+            i--;    
+        }
+    }
+};
