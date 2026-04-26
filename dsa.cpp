@@ -2600,3 +2600,24 @@ public:
         return abs(left-right)+dash;
     }
 };
+2558. Take Gifts From the Richest Pile
+class Solution {
+public:
+    long long pickGifts(vector<int>& gifts, int k) {
+        int n=gifts.size();
+        priority_queue<int>pq;
+        for(int i=0;i<n;i++){
+            pq.push(gifts[i]);
+        }
+        long long ans=0;
+        while(k--){
+            pq.push(sqrt(pq.top()));
+            pq.pop();
+        }
+        for(int i=0;i<n;i++){
+            ans+=pq.top();
+            pq.pop();
+        }
+        return ans;
+    }
+};
