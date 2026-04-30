@@ -2666,3 +2666,20 @@ public:
         return head;
     }
 };
+1963. Minimum Number of Swaps to Make the String Balanced
+class Solution {
+public:
+    int minSwaps(string s) {
+        int imbalance=0;
+        int swap=0;
+        for(int i=0;i<s.length();i++){
+            if(s[i]=='[') imbalance++;
+            else imbalance--;
+            if(imbalance<0){
+                swap++;
+                imbalance=1;
+            }
+        }
+        return swap;
+    }
+};
