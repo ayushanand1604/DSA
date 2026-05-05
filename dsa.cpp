@@ -2697,3 +2697,39 @@ public:
         return -1;
     }
 };
+
+class Solution {
+public:
+    bool isUgly(int n) {
+        if(n<=0) return false;
+        while(n>1){
+            if(n%2==0) n=n/2;
+            else if(n%3==0) n=n/3;
+            else if(n%5==0) n=n/5;
+            else return false;
+        }
+        return true;
+    }
+};
+3254. Find the Power of K-Size Subarrays I
+class Solution {
+public:
+    vector<int> resultsArray(vector<int>& nums, int k) {
+        if(k==1) return nums;
+        vector<int>ans;
+        int count=1;
+        for(int i=1;i<nums.size();i++) {
+            if(nums[i]-nums[i - 1]==1){
+                count++;
+            } 
+            else{
+                count = 1;
+            }
+            if(i>=k-1){
+                if(count>=k)ans.push_back(nums[i]);
+                else ans.push_back(-1);
+            }
+        }
+        return ans;
+    }
+};
