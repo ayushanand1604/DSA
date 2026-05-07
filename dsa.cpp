@@ -2733,3 +2733,26 @@ public:
         return ans;
     }
 };
+347. Top K Frequent Elements
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        vector<int>ans;
+        unordered_map<int,int>mpp;
+        for(int i:nums){
+            mpp[i]++;
+        }
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>>pq;
+        for(auto it:mpp){
+            int element=it.first;
+            int count=it.second;
+            pq.push({count,element});
+            if(pq.size()>k) pq.pop();
+        }
+        while(!pq.empty()){
+            ans.push_back(pq.top().second);
+            pq.pop();
+        }
+        return ans;
+    }
+};
