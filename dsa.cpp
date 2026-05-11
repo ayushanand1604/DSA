@@ -2774,3 +2774,16 @@ public:
         return ans;
     }
 };
+575. Distribute Candies
+class Solution {
+public:
+    int distributeCandies(vector<int>& candyType) {
+        int n=candyType.size();
+        unordered_map<int,int>mpp;
+        for(int i=0;i<n;i++){
+            mpp[candyType[i]]++;
+        }
+        int x=mpp.size();
+        return min(x,n/2);
+    }
+};
