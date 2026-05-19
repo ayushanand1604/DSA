@@ -2885,3 +2885,23 @@ public:
         return count;
     }
 };
+78. Subsets
+class Solution {
+public:
+    void printsubset(vector<int>& nums,vector<int>subset,int i,vector<vector<int>>&result){
+        if(i==nums.size()){
+            result.push_back({subset});
+            return;
+        }
+        subset.push_back(nums[i]);
+        printsubset(nums,subset,i+1,result);
+        subset.pop_back();
+        printsubset(nums,subset,i+1,result);
+    }
+    vector<vector<int>> subsets(vector<int>& nums){
+        vector<vector<int>>result;
+        vector<int>subset;
+        printsubset(nums,subset,0,result);
+        return result;
+    }
+};
