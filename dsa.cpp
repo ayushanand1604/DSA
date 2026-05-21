@@ -2905,3 +2905,22 @@ public:
         return result;
     }
 };
+22. Generate Parentheses
+class Solution {
+public:
+    void generate(vector<string>&ans,int open,int close,string s,int n){
+        if(open==n&&close==n){
+            ans.push_back(s);
+            return;
+        }
+        if(open<n) generate(ans,open+1,close,s+'(',n);
+        if(close<open) generate(ans,open,close+1,s+')',n);
+    }
+    vector<string> generateParenthesis(int n) {
+        vector<string>ans;
+        int open=0;
+        int close=0;
+        generate(ans,open,close,"",n);
+        return ans;
+    }
+};
