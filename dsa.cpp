@@ -2924,4 +2924,24 @@ public:
         return ans;
     }
 };
-https://placement-strategy-demo.vercel.app/
+57. Insert Interval
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>>ans;
+        for(int i=0;i<intervals.size();i++){
+            vector<int>currentInterval=intervals[i];
+            if(currentInterval[1]<newInterval[0]) ans.push_back(currentInterval);
+            else if(currentInterval[0]>newInterval[1]){
+                ans.push_back(newInterval);
+                newInterval=currentInterval;
+            }
+            else{
+                newInterval[0]=min(currentInterval[0],newInterval[0]);
+                newInterval[1]=max(currentInterval[1],newInterval[1]);
+            }
+        }
+        ans.push_back(newInterval);
+        return ans;
+    }
+};
