@@ -3026,5 +3026,16 @@ public:
         }
         return total;
     }
-        
+};
+3940. Limit Occurrences in Sorted Array
+class Solution {
+public:
+    vector<int> limitOccurrences(vector<int>& nums, int k) {
+        vector<int>ans;
+        for(int i=0;i<nums.size();i++){
+            if(ans.size()<k) ans.push_back(nums[i]);
+            else if(ans[ans.size()-k]!=nums[i]) ans.push_back(nums[i]);
+        }
+        return ans;
+    }
 };
