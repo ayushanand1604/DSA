@@ -3008,3 +3008,23 @@ public:
  * int param_3 = obj->peek();
  * bool param_4 = obj->empty();
  */
+
+3941. Password Strength
+ class Solution {
+public:
+    int passwordStrength(string password) {
+        string matching=password;
+        int total=0;
+        unordered_set<char>check;
+        for(int i=0;i<matching.size();i++){
+            if(check.count(matching[i])) continue;
+            check.insert(matching[i]);
+            if(matching[i]>='a'&&matching[i]<='z') total+=1;
+            else if(matching[i]>='A'&&matching[i]<='Z') total+=2;
+            else if(matching[i]>='0'&&matching[i]<='9') total+=3;
+            else if(matching[i]=='!'||matching[i]=='@'||matching[i]=='#'||matching[i]=='$') total+=5;
+        }
+        return total;
+    }
+        
+};
