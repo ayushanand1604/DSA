@@ -3097,3 +3097,45 @@ public:
         return (time==0)?-1:time;
     }
 };
+3942. Minimum Operations to Sort a Permutation
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        int n=nums.size();
+        int zeroIndex=0;
+        int ans=INT_MAX;
+        for(int i=0;i<n;i++){
+            if(nums[i]==0){
+                zeroIndex=i;
+                break;
+            }
+        }
+        bool right=true;
+        for(int i=1;i<n;i++){
+            int prev=(zeroIndex+i-1)%n;
+            int cur=(zeroIndex+i)%n;
+            if(nums[prev]>nums[cur]){
+                right=false;
+                break;
+            }
+        }
+        if(right){
+            ans=min(ans,zeroIndex);
+            ans=min(ans,n-zeroIndex+2);
+        }
+        bool left=true;
+        for(int i=1;i<n;i++){
+            int prev=(zeroIndex-(i-1)+n)%n;
+            int cur=(zeroIndex-i+n)%n;
+            if(nums[prev]>nums[cur]){
+                left=false;
+                break;
+            }
+        }
+        if(left){
+            ans=min(ans,zeroIndex+2);
+            ans=min(ans,n-zeroIndex);
+        }
+        return ans==INT_MAX?-1:ans;
+    }
+};
