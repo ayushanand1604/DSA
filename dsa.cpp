@@ -3179,3 +3179,41 @@ public:
         return num;
     }
 };
+
+class Solution {
+public:
+    static bool compare(vector<int>&a,vector<int>&b){
+        if(a[0]==b[0]) return a[1]<b[1];
+        return a[0]>b[0];
+    }
+    string sortVowels(string s) {
+        int n=s.length();
+        string vowel="aeiou";
+        vector<vector<int>>count(5,{0,-1,0});
+        for(int i=0;i<5;i++){
+            count[i][2]=i;
+        }
+        for(int i=0;i<n;i++){
+            char ch=s[i];
+            int position=vowel.find(ch);
+            if(position!=string::npos){
+                count[position][0]++;
+                if(count[position][1]==-1){
+                    count[position][1]=i;
+                }
+            }
+        }
+        sort(count.begin(),count.end(),compare);
+        int j=0;
+        for(int i=0;i<n;i++){
+            char ch=s[i];
+            int position=vowel.find(ch);
+            if(position!=string::npos){
+                s[i]=vowel[count[j][2]];
+                count[j][0]--;
+                if(count[j][0]==0) j++;
+            }
+        }
+        return s;
+    }
+};
