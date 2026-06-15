@@ -3217,3 +3217,19 @@ public:
         return s;
     }
 };
+ //By ayush_anand123, contest: Codeforces Round 535 (Div. 3), problem: (A) Two distinct points, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    while(n--){
+        int l1,r1,l2,r2;
+        cin>>l1>>r1>>l2>>r2;
+        int a=l1;
+        int b;
+        if(l2==a) b=r2;
+        else b=l2;
+        cout<<a<<" "<<b<<endl;
+    }
+}
