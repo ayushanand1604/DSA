@@ -3233,3 +3233,34 @@ int main(){
         cout<<a<<" "<<b<<endl;
     }
 }
+
+ //By ayush_anand123, contest: Codeforces Round 535 (Div. 3), problem: (B) Divisors of Two Integers, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	// your code goes here
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+    map<int,int>mpp;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        mpp[arr[i]]++;
+    }
+    sort(arr.begin(),arr.end());
+    int x=arr.back();
+    for(int i=1;i*i<=x;i++){
+        if(x%i==0){
+            mpp[i]--;
+            if(i!=x/i) mpp[x/i]--;
+        }    
+    }
+    int y=1;
+    for(int i=n-1;i>=0;i--){
+        if(mpp[arr[i]]>0){
+            y=arr[i];
+            break;
+        }
+    }
+    cout<<x<<" "<<y<<endl;
+}
