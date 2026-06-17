@@ -3264,3 +3264,29 @@ int main() {
     }
     cout<<x<<" "<<y<<endl;
 }
+3927. Minimize Array Sum Using Divisible Replacements
+class Solution {
+public:
+    long long minArraySum(vector<int>& nums) {
+        int n=nums.size();
+        map<long,long>mpp;
+        int max_element=INT_MIN;
+        for(int i=0;i<n;i++){
+            mpp[nums[i]]++;
+            max_element=max(max_element,nums[i]);
+        }
+        long long sum=0;
+        for(auto it=mpp.begin();it!=mpp.end();it++){
+            long long element=it->first;
+            long long count=it->second;
+            if(count==0) continue;
+            for(long long cur=element;cur<=max_element;cur+=element){
+                if(mpp.count(cur)&&mpp[cur]>0){
+                    sum+=mpp[cur]*element;
+                    mpp[cur]=0;
+                }
+            }
+        }
+        return sum;
+    }
+};
