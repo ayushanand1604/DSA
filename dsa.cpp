@@ -3325,3 +3325,30 @@ public:
         return toSeconds(endTime)-toSeconds(startTime);
     }
 };
+//3982. Sum of Integers with Maximum Digit Range
+class Solution {
+public:
+    int maxDigitRange(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>ans;
+        for(int i=0;i<n;i++){
+            int maxm=INT_MIN;
+            int minm=INT_MAX;
+            int a=nums[i];
+            while(a>0){
+                int b=a%10;
+                minm=min(minm,b);
+                maxm=max(maxm,b);
+                a/=10;
+            }
+            ans.push_back(maxm-minm);
+        }
+        int DigitRange=*max_element(ans.begin(),ans.end());
+        int sum=0;
+        for(int i=0;i<n;i++){
+            if(ans[i]==DigitRange) 
+                sum+=nums[i];
+        }
+        return sum;
+    }
+};
