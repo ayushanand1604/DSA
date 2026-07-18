@@ -3381,3 +3381,23 @@ public:
         return square-sum>=50;
     }
 };
+3658. GCD of Odd and Even Sums
+class Solution {
+public:
+    int gcdOfOddEvenSums(int n) {
+        int evenSum=0;
+        int oddSum=0;
+        for(int i=1;i<=n;i++){
+            evenSum+=2*i;
+            oddSum+=2*i-1;
+        }
+        while(oddSum>0&&evenSum>0){
+            if(oddSum>=evenSum){
+                oddSum%=evenSum;
+            }
+            else evenSum%=oddSum;
+        }
+        if(oddSum==0) return evenSum;
+        else return oddSum;
+    }
+};
