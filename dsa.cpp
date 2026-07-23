@@ -217,9 +217,9 @@ int main(){
 // //     }
 // //     cout<<endl;
 // //     cout<<l[2]<<endl;
-    
 // //     return 0;
 // // }
+
 // #include <bits/stdc++.h>
 // using namespace std;
 // int main(){
@@ -237,7 +237,6 @@ int main(){
 //     }
 //     return 0;
 // }
-
 
 // // stack
 // #include <bits/stdc++.h>
@@ -285,7 +284,6 @@ int main(){
 //     }
 // return 0;
 // }
-
 
 // //map
 // // #include <bits/stdc++.h>
@@ -3399,5 +3397,15 @@ public:
         }
         if(oddSum==0) return evenSum;
         else return oddSum;
+    }
+};
+class Solution {
+public:
+    bool canReach(vector<int>& start, vector<int>& target) {
+        int x1=abs(start[0]-target[0]);
+        int x2=abs(start[1]-target[1]);
+        int distance=x1+x2;
+        if(distance%2==0) return true;
+        return false;
     }
 };
