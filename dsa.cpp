@@ -3409,3 +3409,23 @@ public:
         return false;
     }
 };
+// Leetcode 3987
+class Solution {
+public:
+    int minimumCost(vector<int>& nums, int k) {
+        long long sum=0;
+        int resource=k;
+        long long m=1e9+7;
+        for(int i=0;i<nums.size();i++){
+            if(resource>=nums[i]) resource-=nums[i];
+            else{
+                int required=nums[i]-resource;
+                int operation=(required+k-1)/k;
+                resource=resource+(operation*k)-nums[i];
+                sum+=operation;
+            }
+        }
+        long long ans=(sum%m)*((sum+1)%m)/2;
+        return ans%m;
+    }
+};
