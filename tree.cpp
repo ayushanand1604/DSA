@@ -85,3 +85,52 @@ public:
         return ans;
     }
 };
+145. Binary Tree Postorder Traversal Leetcode
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    void solution(TreeNode* node,vector<int>&ans){
+        if(node==NULL) return;
+        solution(node->left,ans);
+        solution(node->right,ans);
+        ans.push_back(node->val);
+    }
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int>ans;
+        solution(root,ans);
+        return ans;
+    }
+};
+//Preorder traversal (Iterative) GFG
+class Solution {
+  public:
+    vector<int> preOrder(Node* root) {
+        // code here
+        vector<int> ans;
+        if(root==NULL) return ans;
+        stack<Node*> st;
+        st.push(root);
+        while(!st.empty()){
+            root=st.top();
+            st.pop();
+            ans.push_back(root->data);
+            if(root->right!=NULL){
+                st.push(root->right);
+            }
+            if(root->left!=NULL){
+                st.push(root->left);
+            }
+        }
+        return ans;
+    }
+};
