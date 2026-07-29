@@ -3429,3 +3429,23 @@ public:
         return ans%m;
     }
 };
+4000. Largest Integer With Given Digit Sum
+class Solution {
+public:
+    int largestInteger(int n, int s) {
+        if(s==0) return 0;
+        int ans=0;
+        while(n--){
+            if(s>=9){
+                ans=ans*10+9;
+                s=s-9;
+            }
+            else{
+                ans=ans*10+s;
+                s=0;
+            }
+        }
+        if(s>0) return -1;
+        return ans;
+    }
+};
