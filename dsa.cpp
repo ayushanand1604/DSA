@@ -3449,24 +3449,24 @@ public:
         return ans;
     }
 };
-3658. GCD of Odd and Even Sums
+4001. Aggregate Two Time Series
 class Solution {
 public:
-    int gcdOfOddEvenSums(int n) {
-        int evenSum=0;
-        int oddSum=0;
-        for(int i=1;i<=n;i++){
-            evenSum+=2*i;
-            oddSum+=2*i-1;
+    vector<vector<int>> aggregateTimeSeries(vector<vector<int>>& s1, vector<vector<int>>& s2) {
+        vector<vector<int>>ans;
+        int n=s1.size();
+        int m=s2.size();
+        int i=0,j=0;
+        while(i<n||j<m){
+            int t;
+            if(j==m||(i<n&&s1[i][0]<s2[j][0])) t=s1[i][0];
+            else t=s2[j][0];
+            int value1=(i<n)?s1[i][1]:0;
+            int value2=(j<m)?s2[j][1]:0;
+            ans.push_back({t,value1+value2});
+            if(i<n&&s1[i][0]==t) i++;
+            if (j<m&&s2[j][0]==t) j++;
         }
-        while(oddSum>0&&evenSum>0){
-            if(oddSum>=evenSum){
-                oddSum%=evenSum;
-            }
-            else evenSum%=oddSum;
-        }
-        if(oddSum==0) return evenSum;
-        else return oddSum;
+        return ans;
     }
 };
-fvhdvjbdvjnjbkvn,fdv
