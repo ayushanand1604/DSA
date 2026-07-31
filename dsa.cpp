@@ -3470,12 +3470,32 @@ public:
         return ans;
     }
 };
-3516. Find Closest Person 
+
+//3516. Find Closest Person 
 class Solution {
 public:
     int findClosest(int x, int y, int z) {
         if(abs(z-y)>abs(z-x)) return 1;
         else if(abs(z-y)<abs(z-x)) return 2;
         return 0;
+    }
+};
+
+//3432. Count Partitions with Even Sum Difference leetcode
+class Solution {
+public:
+    int countPartitions(vector<int>& nums) {
+        int leftSum=0;
+        int totalSum=0;
+        int count=0;
+        for(int i=0;i<nums.size();i++){
+            totalSum+=nums[i];
+        }
+        for(int i=0;i<nums.size()-1;i++){
+            leftSum+=nums[i];
+            totalSum-=nums[i];
+            if(abs(totalSum-leftSum)%2==0) count++;
+        }
+        return count;
     }
 };
