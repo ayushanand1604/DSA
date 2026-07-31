@@ -3499,3 +3499,21 @@ public:
         return count;
     }
 };
+
+// 3442. Maximum Difference Between Even and Odd Frequency I leetcode
+class Solution {
+public:
+    int maxDifference(string s) {
+        unordered_map<int,int>mpp;
+        for(char ch:s){
+            mpp[ch]++;
+        }
+        int odd=INT_MIN;
+        int even=INT_MAX;
+        for(auto it:mpp){
+            if(it.second%2==0) even=min(even,it.second);
+            else odd=max(odd,it.second);
+        }
+        return odd-even;
+    }
+};
