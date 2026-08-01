@@ -3517,3 +3517,23 @@ public:
         return odd-even;
     }
 };
+
+//3541. Find Most Frequent Vowel and Consonant leetcode
+class Solution {
+public:
+    int maxFreqSum(string s) {
+        unordered_map<char,int>mpp;
+        for(int i=0;i<s.length();i++){
+            mpp[s[i]]++;
+        }
+        int maxVowel=0;
+        int maxConsonant=0;
+        for(auto it:mpp){
+            if(it.first=='a'||it.first=='e'||it.first=='i'||it.first=='o'||it.first=='u'){
+                maxVowel=max(maxVowel,it.second);
+            }
+            else maxConsonant=max(maxConsonant,it.second);
+        }
+        return maxVowel+maxConsonant;
+    }
+};
