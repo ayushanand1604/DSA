@@ -3537,3 +3537,27 @@ public:
         return maxVowel+maxConsonant;
     }
 };
+
+//3545. Minimum Deletions for At Most K Distinct Characters leetcode
+class Solution {
+public:
+    int minDeletion(string s, int k) {
+        unordered_map<char,int> mpp;
+        for(int i=0;i<s.length();i++){
+            mpp[s[i]]++;
+        }
+        int distinct=mpp.size();
+        if(distinct<=k) return 0;
+        vector<int> count;
+        for(auto it:mpp){
+            count.push_back(it.second);
+        }
+        sort(count.begin(),count.end());
+        int deletions=0;
+        int remove=distinct-k;
+        for(int i=0;i<remove;i++){
+            deletions+=count[i];
+        }
+        return deletions;
+    }
+};
