@@ -3579,3 +3579,68 @@ public:
         return ans;
     }
 };
+
+// 4012. Count of Unfinished Tasks After Each Shift
+class Solution {
+public:
+    vector<int> countTasks(vector<int>& tasks, vector<int>& shifts) {
+        int n=tasks.size();
+        vector<long long> pre(n+1,0);
+        for(int i=0;i<n;i++){
+            pre[i+1]=pre[i]+tasks[i];
+        }
+        vector<int>ans;
+        int i=0;
+        long long done=0;
+        for(int j=0;j<shifts.size();j++){
+            long long t=shifts[j];
+            if(done){
+                int need=tasks[i]-done;
+                if(t<need){
+                    done+=t;
+                    ans.push_back(n-i);
+                    continue;
+                }
+                t-=need;
+                i++;
+                done=0;
+        }
+        long long cur=pre[i]+t;
+        int low=i,high=n,k=i;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(pre[mid]<=cur){
+                k=mid;
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        if(k==n){
+            ans.push_back(0);
+            i=0;
+            done=0;
+            continue;
+        }
+        done=cur-pre[k];
+            i=k;
+            if(done==tasks[i]){
+                i++;
+                done=0;
+                if(i==n){
+                    ans.push_back(0);
+                    i=0;
+                    done=0;
+                    continue;
+                }
+                else
+                    ans.push_back(n-i);
+            }
+            else{
+                ans.push_back(n-i);
+            }
+        }
+        return ans;
+    }
+};
