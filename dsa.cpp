@@ -3561,3 +3561,21 @@ public:
         return deletions;
     }
 };
+
+//4010. Maximize Pair Strength Using GCD leetcode
+class Solution {
+public:
+    long long maxPairStrength(vector<int>& nums) {
+        long long ans=0;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                long long b=gcd(nums[i],nums[j]);
+                long long x=nums[i]/b;
+                long long y=nums[j]/b;
+                ans=max(ans,x*y);
+            }
+        }
+        return ans;
+    }
+};
