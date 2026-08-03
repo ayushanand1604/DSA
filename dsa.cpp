@@ -3668,3 +3668,24 @@ public:
         return ans;
     }
 };
+
+//3550. Smallest Index With Digit Sum Equal to Index
+class Solution {
+public:
+    int smallestIndex(vector<int>& nums) {
+        int i=0;
+        int minIndex=INT_MAX;
+        int n=nums.size();
+        while(n--){
+            int x=nums[i];
+            int sum=0;
+            while(x>0){
+                sum+=x%10;
+                x/=10;
+            }
+            if(sum==i) minIndex=min(minIndex,i);
+            i++;
+        }
+        return (minIndex==INT_MAX)?-1:minIndex;
+    }
+};
