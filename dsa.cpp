@@ -3689,3 +3689,15 @@ public:
         return (minIndex==INT_MAX)?-1:minIndex;
     }
 };
+
+//3560. Find Minimum Log Transportation Cost
+class Solution {
+public:
+    long long minCuttingCost(int n, int m, int k) {
+        long long ans=0;
+        if(m<=k && n<=k) return 0;
+        else if(m>k) ans+=long(m-k)*k;
+        else ans+=long(n-k)*k;
+        return ans;
+    }
+};
