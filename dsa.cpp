@@ -3701,3 +3701,24 @@ public:
         return ans;
     }
 };
+
+// 3561. Resulting String After Adjacent Removals
+class Solution {
+public:
+    string resultingString(string s) {
+        stack<char>st;
+        for(int i=0;i<s.length();i++){
+            if(!st.empty()&&((abs(st.top()-s[i])==1)||abs(st.top()-s[i])==25)){
+                st.pop();
+            }
+            else st.push(s[i]);
+        }
+        string ans="";
+        while(!st.empty()){
+            ans+=st.top();
+            st.pop();
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
