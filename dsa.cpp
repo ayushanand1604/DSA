@@ -3744,7 +3744,7 @@ public:
     }
 };
 
-2047. Number of Valid Words in a Sentence
+//2047. Number of Valid Words in a Sentence leetcode
 class Solution {
 public:
     bool valid(string s){
@@ -3782,5 +3782,30 @@ public:
             }
         }
         return count;
+    }
+};
+
+599. Minimum Index Sum of Two Lists leetcode
+class Solution {
+public:
+    vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
+        unordered_map<string,int>mpp;
+        for(int i=0;i<list1.size();i++){
+            mpp[list1[i]]=i;
+        }
+        vector<string>ans;
+        int minIndex=INT_MAX;
+        for(int i=0;i<list2.size();i++){
+            if(mpp.find(list2[i])!=mpp.end()){
+                int sum=i+mpp[list2[i]];
+                if(sum<minIndex){
+                    minIndex=sum;
+                    ans.clear();
+                    ans.push_back(list2[i]);
+                }
+                else if(sum==minIndex) ans.push_back(list2[i]);
+            }
+        }
+        return ans;
     }
 };
