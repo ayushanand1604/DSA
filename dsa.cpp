@@ -3743,3 +3743,44 @@ public:
         return ans.substr(0,100);
     }
 };
+
+2047. Number of Valid Words in a Sentence
+class Solution {
+public:
+    bool valid(string s){
+        int hyphen=0;
+        int punctuation=0;
+        for(int i=0;i<s.length();i++){
+            char ch=s[i];
+            if(isdigit(ch)) return false;
+            if(ch=='-'){
+                hyphen++;
+                if(hyphen>1) return false;
+                if(i==0 || i==s.length()-1) return false;
+                if(!islower(s[i-1])||!islower(s[i+1])) return false;
+            }
+            if(ch=='!'||ch=='.'||ch==','){
+                punctuation++;
+                if(punctuation>1) return false;
+                if(i!=s.length()-1) return false;
+            }    
+        }
+        return true;
+    }
+    int countValidWords(string sentence) {
+        string token;
+        int count=0;
+        for(int i=0;i<=sentence.length();i++){
+            if(i==sentence.length()||sentence[i]==' '){
+                if(!token.empty()){
+                    if(valid(token)) count++;
+                    token.erase();
+                }
+            }
+            else{
+                token+=sentence[i];
+            }
+        }
+        return count;
+    }
+};
