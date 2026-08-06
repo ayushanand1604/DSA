@@ -3860,3 +3860,29 @@ public:
         return ans;
     }
 };
+
+// Minimum Increment or Double Operations to Convert GFG
+class Solution {
+  public:
+    int countMinOperations(vector<int>& arr) {
+        // code here
+        int decrementCount=0;
+        int maxDivideCount=0;
+        for(int i=0;i<arr.size();i++){
+            int num=arr[i];
+            int divideCount=0;
+            while(num>0){
+                if(num % 2 == 1){
+                    num--;
+                    decrementCount++;
+                }
+                else{
+                    divideCount++;
+                    num=num/2;
+                }
+            }
+            maxDivideCount=max(divideCount,maxDivideCount);
+        }
+        return decrementCount+maxDivideCount;
+    }
+};
