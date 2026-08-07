@@ -3927,3 +3927,19 @@ public:
         return (max1-1)*(max2-1);
     }
 };
+
+//1979. Find Greatest Common Divisor of Array
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        int ans;
+        int min=INT_MAX;
+        int max=INT_MIN;
+        for(int x:nums){
+            if(x<min) min=x;
+            if(x>max) max=x;
+        }
+        ans=gcd(min,max);
+        return ans;
+    }
+};
