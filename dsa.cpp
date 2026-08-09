@@ -3963,3 +3963,22 @@ public:
         return count;
     }
 };
+
+// 4014. Minimum Total Price After Applying Discounts leetcode 
+class Solution {
+public:
+    double minPrice(vector<int>& prices, vector<int>& discounts) {
+        sort(prices.rbegin(),prices.rend());
+        sort(discounts.rbegin(),discounts.rend());
+        int n = min(prices.size(),discounts.size());
+        double ans = 0.0;
+        for (int i = 0; i < (int)prices.size(); ++i) {
+            if (i < n) {
+                ans += (double)prices[i] * (100.0 - discounts[i]) / 100.0;
+            } else {
+                ans += prices[i];
+            }
+        }
+        return ans;
+    }
+};
