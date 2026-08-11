@@ -4021,3 +4021,23 @@ public:
         return (power(2,n)-2+mod)%mod;
     }
 };
+
+372. Super Pow leetcode 
+class Solution {
+public:
+    int exponent(int a,int b){
+        int ans=1;
+        for(int i=0;i<b;i++){
+            ans=(ans*a)%1337;
+        }
+        return ans;
+    }
+    int superPow(int a, vector<int>& b) {
+        a=a%1337;
+        int ans=1;
+        for(int i=0;i<b.size();i++){
+            ans=exponent(ans,10)*exponent(a,b[i])%1337;
+        }
+        return ans;
+    }
+};
