@@ -3996,3 +3996,28 @@ public:
         return sum;
     }
 };
+
+
+2550. Count Collisions of Monkeys on a Polygon
+class Solution {
+public:
+    long long power(long long a,long long n){
+        long long mod=1e9+7;
+        long long ans=1;
+        while(n>0){
+            if(n%2==1){
+                ans=(ans*a)%mod;
+                n--;
+            }
+            else{
+                a=(a*a)%mod;
+                n/=2;
+            }
+        }
+        return ans;
+    }
+    int monkeyMove(int n) {
+        int mod=1e9 + 7;
+        return (power(2,n)-2+mod)%mod;
+    }
+};
