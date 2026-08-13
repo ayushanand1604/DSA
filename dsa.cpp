@@ -4085,3 +4085,27 @@ public:
         return sum;
     }
 };
+
+
+// 1854. Maximum Population Year leetcode 
+class Solution {
+public:
+    int maximumPopulation(vector<vector<int>>& logs) {
+        int years[101] = {0};
+        for(int i=0;i<logs.size();i++) {
+            years[logs[i][0]-1950]++;
+            years[logs[i][1]-1950]--;
+        }
+        int population=0;
+        int maxPopulation=0;
+        int answer=1950;
+        for (int i=0;i<=100;i++) {
+            population += years[i];
+            if (population > maxPopulation) {
+                maxPopulation = population;
+                answer = 1950 + i;
+            }
+        }
+        return answer;
+    }
+};
