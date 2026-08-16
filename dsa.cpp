@@ -4187,3 +4187,22 @@ public:
         return ans;
     }
 };
+
+Q1. Nearest Available Drone Leetcode
+class Solution {
+public:
+    int nearestDrone(vector<vector<int>>& drones, vector<int>& target) {
+        int minDist=INT_MAX;
+        int ans=-1;
+        for(int i=0;i<drones.size();i++){
+            int x=drones[i][0];
+            int y=drones[i][1];
+            int dist=abs(x-target[0])+abs(y-target[1]);
+            if(dist<=drones[i][2] && dist<minDist){
+                minDist=dist;
+                ans=i;
+            }
+        }
+        return ans;
+    }
+};©leetcode
