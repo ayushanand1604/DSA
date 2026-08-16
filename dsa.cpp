@@ -4207,7 +4207,7 @@ public:
     }
 };
 
-Q2. Minimize the Maximum Waiting Time at Synchronized Traffic Lights leetcode
+Q2. Minimize the Maximum Waiting Time at Synchronized Traffic Lights leetcode 515 contest
 class Solution {
 public:
     int minPenalty(int period, vector<int>& lights, vector<int>& arrivalTime) {
@@ -4227,6 +4227,37 @@ public:
                 wait=period-r;
             }
             ans=max(ans,wait);
+        }
+        return ans;
+    }
+};
+
+Q3. Maximum Gap Between Stations leetcode 515 contest
+class Solution {
+public:
+    int maximumGap(string skill, string station) {
+        int n=skill.size();
+        vector<int>left(n);
+        vector<int>right(n);
+        int ans=0;
+        int j=0;
+        for(int i=0;i<n;i++){
+            while(station[j]!=skill[i]){
+                j++;
+            }
+            left[i]=j;
+            j++;
+        }
+        j=station.size()-1;
+        for(int i=n-1;i>=0;i--){
+            while(station[j]!=skill[i]){
+                j--;
+            }
+            right[i]=j;
+            j--;
+        }
+        for(int i=1;i<n;i++){
+            ans=max(ans,right[i]-left[i-1]);
         }
         return ans;
     }
