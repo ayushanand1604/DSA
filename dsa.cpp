@@ -4205,4 +4205,29 @@ public:
         }
         return ans;
     }
-};©leetcode
+};
+
+Q2. Minimize the Maximum Waiting Time at Synchronized Traffic Lights leetcode
+class Solution {
+public:
+    int minPenalty(int period, vector<int>& lights, vector<int>& arrivalTime) {
+        int maxlight=0;
+        for(int i=0;i<lights.size();i++){
+            maxlight=max(maxlight,lights[i]);
+        }
+        int ans=0;
+        for(int i=0;i<arrivalTime.size();i++){
+            int a=arrivalTime[i];
+            int r=a%period;
+            int wait;
+            if(r<maxlight){
+                wait=0;
+            }
+            else{
+                wait=period-r;
+            }
+            ans=max(ans,wait);
+        }
+        return ans;
+    }
+};
