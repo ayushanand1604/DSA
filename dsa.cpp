@@ -4310,3 +4310,23 @@ public:
         return ans;
     }
 };
+
+
+2500. Delete Greatest Value in Each Row
+class Solution {
+public:
+    int deleteGreatestValue(vector<vector<int>>& grid) {
+        int sum=0;
+        for(auto &row:grid){
+            sort(row.begin(),row.end());
+        }
+        for(int col=grid[0].size()-1;col>=0;col--){
+            int mx=0;
+            for(int row=0;row<grid.size();row++){
+                mx=max(mx,grid[row][col]);
+            }
+            sum+=mx;
+        }
+        return sum;
+    }
+};
