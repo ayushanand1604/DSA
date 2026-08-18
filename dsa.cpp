@@ -4330,3 +4330,21 @@ public:
         return sum;
     }
 };
+
+
+1047. Remove All Adjacent Duplicates In String leetcode 
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        vector<char> v;
+        for(int i=0;i<s.length();i++){
+            if(!v.empty()&&v.back()==s[i]){
+                v.pop_back();
+            }
+            else{
+                v.push_back(s[i]);
+            }
+        }
+        return string(v.begin(),v.end());
+    }
+};
