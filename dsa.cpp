@@ -4376,3 +4376,19 @@ public:
         return ans;
     }
 };
+
+2506. Count Pairs Of Similar Strings leetcode 
+class Solution {
+public:
+    int similarPairs(vector<string>& words) {
+        int count = 0;
+        unordered_map<string,int> mpp;
+        for(auto it:words){
+            sort(it.begin(),it.end());
+            it.erase(unique(it.begin(),it.end()),it.end());
+            count+=mpp[it];
+            mpp[it]++;
+        }
+        return count;
+    }
+};
