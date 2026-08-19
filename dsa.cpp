@@ -1150,7 +1150,7 @@ public:
             m[sum]++;
             if(m[sum]==2){
                 return true;
-            }
+        
         }
         return false;
     }
@@ -4390,5 +4390,27 @@ public:
             mpp[it]++;
         }
         return count;
+    }
+};
+
+75. Sort Colors leetcode 
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {    
+        int i=0;
+        int j=0;
+        int k=nums.size()-1;
+        while(j<=k){
+            if(nums[j]==1) j++;
+            else if(nums[j]==2){
+                swap(nums[j],nums[k]);
+                k--;
+            }
+            else{
+                swap(nums[i],nums[j]);
+                i++;
+                j++;
+            }
+        }
     }
 };
