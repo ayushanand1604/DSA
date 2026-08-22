@@ -4523,3 +4523,20 @@ public:
         return ans;
     }
 };
+
+2656. Maximum Sum With Exactly K Elements leetcode
+class Solution {
+public:
+    int maximizeSum(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
+        int sum=0;
+        int n=nums.size();
+        while(k--){
+            int m=nums[n-1];
+            sum+=m;
+            nums.pop_back();
+            nums.push_back(m+1);
+        }
+        return sum;
+    }
+};
