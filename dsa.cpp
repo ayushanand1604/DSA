@@ -4574,3 +4574,24 @@ public:
         return ans;
     }
 };
+
+2562. Find the Array Concatenation Value leetcode
+class Solution {
+public:
+    long long findTheArrayConcVal(vector<int>& nums) {
+        long long sum=0;
+        int i=0;
+        int j=nums.size()-1;
+        while(i<j){
+            string s= to_string(nums[i]) + to_string(nums[j]);
+            int concate= stoi(s);
+            sum += concate;
+            i++;
+            j--;
+        }
+        if(i==j){
+            sum+=nums[i];
+        }
+        return sum;
+    }
+};
