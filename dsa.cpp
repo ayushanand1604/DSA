@@ -4664,3 +4664,33 @@ public:
         return true;
     }
 };
+
+4031. Find All Numbers Disappeared in an Array II leetcode
+class Solution {
+public:
+    vector<vector<int>> findDisappearedNumbers(vector<int>& nums, int lower, int upper) {
+        vector<vector<int>> ans;
+        vector<int> freq(100001,0);
+        for(int i=0;i<nums.size();i++){
+            freq[nums[i]]++;
+        }
+        int start = -1;
+        for(int i=lower;i<=upper;i++){
+            if(freq[i]==0){
+                if(start==-1){
+                    start=i;
+                }
+            }
+            else{
+                if(start!=-1){
+                    ans.push_back({start,i-1});
+                    start=-1;
+                }
+            }
+        }
+        if(start!=-1){
+            ans.push_back({start,upper});
+        }
+        return ans;
+    }
+};
