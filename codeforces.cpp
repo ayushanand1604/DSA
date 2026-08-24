@@ -297,3 +297,33 @@ int main(){
     cout<<ans<<endl;
     return 0;
 }
+
+
+By ayush_anand123, contest: Codeforces Round 912 (Div. 2), problem: (A) Halloumi Boxes, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        vector<int> arr(n);
+        for (int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        if(k>=2){
+            cout<<"YES\n";
+        }
+        else{
+            bool sorted=true;
+            for(int i=1;i<n;i++){
+                if(arr[i]<arr[i-1]){
+                    sorted=false;
+                    break;
+                }
+            }
+            cout<<(sorted ? "YES\n": "NO\n");
+        }    
+    }
+}
