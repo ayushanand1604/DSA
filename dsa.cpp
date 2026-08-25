@@ -4723,3 +4723,18 @@ public:
         return best;
     }
 };
+
+2011. Final Value of Variable After Performing Operations
+class Solution {
+public:
+    int finalValueAfterOperations(vector<string>& operations) {
+        int x=0;
+        for(string c:operations){
+            if(c[0]=='+') x++;
+            else if(c[0]=='-') x--;
+            else if(c[1]=='+') x++;
+            else if(c[1]=='-') x--;
+        }
+        return x;
+    }
+};
