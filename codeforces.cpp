@@ -374,3 +374,18 @@ int main() {
     }
     return 0;
 }
+
+By ayush_anand123, contest: Codeforces Round 909 (Div. 3), problem: (A) Game with Integers, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        if(n%3==0) cout<<"Second"<<endl;
+        else cout<<"First"<<endl;
+    }
+    return 0;
+}
