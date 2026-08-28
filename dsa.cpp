@@ -4831,3 +4831,29 @@ public:
         return {-1,-1};
     }
 };
+
+2788. Split Strings by Separator leetcode
+class Solution {
+public:
+    vector<string> splitWordsBySeparator(vector<string>& words, char separator) {
+        vector<string> ans;
+        for(string word:words){
+            string temp="";
+            for(int i=0;i<word.length();i++){
+                if(word[i]==separator){
+                    if(!temp.empty()){
+                        ans.push_back(temp);
+                        temp="";
+                    }
+                }    
+                    else{
+                        temp+=word[i];
+                    }
+                }
+                if(!temp.empty()){
+                    ans.push_back(temp);
+                }
+            }
+        return ans;
+    }
+};
