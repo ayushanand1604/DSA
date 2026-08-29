@@ -4858,7 +4858,7 @@ public:
     }
 };
 
-2651. Calculate Delayed Arrival Time
+2651. Calculate Delayed Arrival Time leetcode
 class Solution {
 public:
     int findDelayedArrivalTime(int arrivalTime, int delayedTime) {
@@ -4866,5 +4866,26 @@ public:
         if(time == 24) return 0;
         if(time > 24) return time-24;
         return time;
+    }
+};
+
+
+2639. Find the Width of Columns of a Grid leetcode 
+class Solution {
+public:
+    vector<int> findColumnWidth(vector<vector<int>>& grid) {
+        vector<int> ans;
+        int m = grid.size();
+        int n = grid[0].size();
+        for(int i = 0; i < n; i++){
+            int maxm = 0;
+            for(int j = 0; j < m; j++){
+                string num=to_string(grid[j][i]);
+                int len = num.length();
+                maxm = max(len,maxm);
+            }
+            ans.push_back(maxm);
+        }
+        return ans;
     }
 };
