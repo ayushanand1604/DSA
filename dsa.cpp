@@ -4857,3 +4857,14 @@ public:
         return ans;
     }
 };
+
+2651. Calculate Delayed Arrival Time
+class Solution {
+public:
+    int findDelayedArrivalTime(int arrivalTime, int delayedTime) {
+        int time = arrivalTime + delayedTime;
+        if(time == 24) return 0;
+        if(time > 24) return time-24;
+        return time;
+    }
+};
