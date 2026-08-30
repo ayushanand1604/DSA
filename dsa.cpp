@@ -4889,3 +4889,22 @@ public:
         return ans;
     }
 };
+
+
+4038. Count Integers Appearing in a Single Block leetcode
+class Solution {
+public:
+    int countSpecialIntegers(vector<int>& nums) {
+        int count=0;
+        int special[101]={};
+        for(int i=0;i<nums.size();i++){
+            if(i==0 || nums[i] != nums[i-1]){
+                special[nums[i]]++;
+            }
+        }
+        for(int i=1;i<=100;i++){
+            if(special[i]==1) count++;
+        }
+        return count;
+    }
+};
