@@ -409,3 +409,25 @@ int main() {
     }
     return 0;
 }
+
+By ayush_anand123, contest: Codeforces Round 903 (Div. 3), problem: (A) Don't Try to Count, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+        string x,s;
+        cin>>x>>s;
+        int ans=0;
+        while(x.find(s) >= x.size() && x.size()<=100){
+            x+=x;
+            ans++;
+        }
+        if(x.find(s)<x.size()) cout<<ans<<endl;
+        else cout<<-1<<endl;
+    }
+    return 0;
+}
