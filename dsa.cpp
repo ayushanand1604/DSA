@@ -4910,7 +4910,7 @@ public:
 };
 
 
-3099. Harshad Number 
+3099. Harshad Number leetcode
 class Solution {
 public:
     int sumOfTheDigitsOfHarshadNumber(int x) {
@@ -4921,5 +4921,22 @@ public:
             x /=10;
         }
         return num % sum == 0 ? sum:-1;
+    }
+};
+
+3345. Smallest Divisible Digit Product I leetcode 
+class Solution {
+public:
+    int smallestNumber(int n, int t) {
+        for(int i=n;i<=100;i++){
+            int x = i;
+            int product=1;
+            while(x>0){
+                product*=x%10;
+                x /= 10;
+            }
+            if(product % t == 0) return i;
+        }
+        return -1;
     }
 };
