@@ -4940,3 +4940,27 @@ public:
         return -1;
     }
 };
+
+1248. Count Number of Nice Subarrays leetcode
+class Solution {
+public:
+    int numberOfSubarrays(vector<int>& nums, int k) {
+        int count=0;
+        int prefix=0;
+        int left = 0;
+        int total =0;
+        for(int right=0;right<nums.size();right++){
+            if(nums[right]%2!=0){
+                count++;
+                prefix =0;
+            }
+            while(count == k){
+                if(nums[left]%2!=0) count--;
+                left++;
+                prefix++;
+            }
+            total += prefix;    
+        }
+        return total;
+    }
+};
