@@ -4978,3 +4978,23 @@ public:
         return count;
     }
 };
+
+3005. Count Elements With Maximum Frequency
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        int ans = 0;
+        unordered_map<int,int>mpp;
+        for(int i = 0;i < nums.size();i++){
+            mpp[nums[i]]++;
+        }
+        int maximumFrequency=0;
+        for(auto it:mpp){
+            maximumFrequency=max(maximumFrequency,it.second);
+        }
+        for(auto it:mpp){
+            if(it.second==maximumFrequency) ans += maximumFrequency;
+        }
+        return ans;
+    }
+};
