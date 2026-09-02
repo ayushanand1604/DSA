@@ -4979,7 +4979,7 @@ public:
     }
 };
 
-3005. Count Elements With Maximum Frequency
+3005. Count Elements With Maximum Frequency leetcode
 class Solution {
 public:
     int maxFrequencyElements(vector<int>& nums) {
@@ -4996,5 +4996,24 @@ public:
             if(it.second==maximumFrequency) ans += maximumFrequency;
         }
         return ans;
+    }
+};
+
+3038. Maximum Number of Operations With the Same Score I leetcode
+class Solution {
+public:
+    int maxOperations(vector<int>& nums) {
+        int count = 0;
+        int score = nums[0] + nums[1];
+        int current = score;
+        int i = 0;
+        while((i < nums.size()-1)&&(current == score)){
+            current = nums[i]+nums[i+1];
+            if(current == score){
+                count++;
+            }
+            i += 2;
+        }
+        return count;
     }
 };
