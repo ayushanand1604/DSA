@@ -410,7 +410,7 @@ int main() {
     return 0;
 }
 
-By ayush_anand123, contest: Codeforces Round 903 (Div. 3), problem: (A) Don't Try to Count, Accepted, #, Copy
+//By ayush_anand123, contest: Codeforces Round 903 (Div. 3), problem: (A) Don't Try to Count, Accepted, #, Copy
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
@@ -433,7 +433,7 @@ int main(){
 }
 
 
-By ayush_anand123, contest: Codeforces Round 902 (Div. 2, based on COMPFEST 15 - Final Round), problem: (A) Goals of Victory, Accepted, #, Copy
+// By ayush_anand123, contest: Codeforces Round 902 (Div. 2, based on COMPFEST 15 - Final Round), problem: (A) Goals of Victory, Accepted, #, Copy
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
@@ -455,7 +455,7 @@ int main(){
     return 0;
 }
 
-By ayush_anand123, contest: Codeforces Round 898 (Div. 4), problem: (C) Target Practice,
+//By ayush_anand123, contest: Codeforces Round 898 (Div. 4), problem: (C) Target Practice,
  #include <bits/stdc++.h>
 using namespace std;
  
@@ -480,7 +480,7 @@ int main() {
     return 0;
 }
 
-By ayush_anand123, contest: COMPFEST 15 - Preliminary Online Mirror (Unrated, ICPC Rules, Teams Preferred), problem: (A) Ambitious Kid, Accepted, #, Copy
+//By ayush_anand123, contest: COMPFEST 15 - Preliminary Online Mirror (Unrated, ICPC Rules, Teams Preferred), problem: (A) Ambitious Kid, Accepted, #, Copy
 #include <bits/stdc++.h>
 using namespace std;
  

@@ -5037,3 +5037,19 @@ public:
         return true;
     }
 };
+
+1544. Make The String Great leetcode
+class Solution {
+public:
+    string makeGood(string s) {
+        vector<char> stack;
+        for(int i = 0;i<s.length();i++){
+            if(!stack.empty() && abs(stack.back()-s[i])==32){
+                stack.pop_back();
+            }
+            else stack.push_back(s[i]);
+        }
+        string ans(stack.begin(),stack.end());
+        return ans;
+    }
+};
