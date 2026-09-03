@@ -479,3 +479,23 @@ int main() {
     }
     return 0;
 }
+
+By ayush_anand123, contest: COMPFEST 15 - Preliminary Online Mirror (Unrated, ICPC Rules, Teams Preferred), problem: (A) Ambitious Kid, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int minimumOperations=INT_MAX;
+    for(int i=0;i<n;i++){
+        minimumOperations=min(minimumOperations,abs(arr[i]-0));
+    }
+    cout<<minimumOperations<<endl;
+    return 0;
+}
