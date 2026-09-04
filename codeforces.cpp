@@ -499,3 +499,38 @@ int main() {
     cout<<minimumOperations<<endl;
     return 0;
 }
+
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> arr(n);
+        for(int i = 0;i < n;i++){
+            cin>>arr[i];
+        }
+        int minimum = *min_element(arr.begin(),arr.end());
+        vector<int> b,c;
+        for(auto it: arr){
+            if(it == minimum) b.push_back(it);
+            else c.push_back(it);
+        }
+        if(c.empty()) {
+            cout<<-1<<endl;
+            continue;
+        }
+        cout<<b.size()<<" "<<c.size()<<endl;
+        for(int x :b){
+            cout<<x<<" ";
+        }
+        cout<<endl;
+        for(int y :c){
+            cout<<y<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
