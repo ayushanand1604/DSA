@@ -5102,3 +5102,18 @@ public:
         return ans;
     }
 };
+
+4043. Count Rotations With Exactly K Equal Adjacent Pairs leetcode 
+class Solution {
+public:
+    int countRotations(string s, int k) {
+        int n = s.length();
+        int count = 0;
+        for(int i = 0 ;i < n;i++){
+            if(s[i]==s[i+1]) count++;
+        }
+        if(s[0] == s[n-1]) count++;
+        if(k == count) return n-count;
+        return k == count - 1 ? count : 0;
+    }
+};
