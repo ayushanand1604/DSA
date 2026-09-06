@@ -5072,3 +5072,33 @@ public:
         return count;
     }
 };
+
+4039. Sum of Decoded Numbers leetcode 
+class Solution {
+public:
+    const long long MOD = 1e9 + 7;
+    long long product(long long a,long long b){
+        long long result = 1;
+        while(b > 0){
+            if (b % 2 == 1) {
+                result = (result * a) % MOD;
+            }
+            a = (a * a) % MOD;
+            b /= 2;
+        }
+        return result;
+    }
+    int sumDecoded(vector<long long>& nums) {
+        long long ans= 0;
+        for(int i = 0;i < nums.size();i++){
+            long long num=nums[i];
+            int width = num%10;
+            long long d = num/10;
+            string s =to_string(d);
+            long long x = stoi(s.substr(0,width));
+            long long y = stoi(s.substr(width));
+            ans = (ans + product(x,y)) % MOD;
+        }
+        return ans;
+    }
+};
