@@ -5117,3 +5117,27 @@ public:
         return k == count - 1 ? count : 0;
     }
 };
+
+
+4044. Count Good Cyclic Rotations leetcode
+class Solution {
+public:
+    int countGoodRotations(vector<int>& nums) {
+        int count = 0;
+        long long totalSum = 0;
+        int n = nums.size();
+        long long halfSum = 0;
+        for(int i = 0;i < n;i++){
+            totalSum += nums[i];
+        }
+        for(int i = 0;i < n/2;i++){
+            halfSum += nums[i];
+        }
+        for(int i = 0;i < n;i++){
+            if(2 * halfSum > totalSum) count++;
+            halfSum += nums[(i+ n/2) %n ];
+            halfSum -= nums[i];
+        }
+        return count;
+    }
+};
