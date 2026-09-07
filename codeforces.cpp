@@ -579,3 +579,26 @@ int main(){
     }
     return 0;
 }
+
+By ayush_anand123, contest: Codeforces Round 887 (Div. 2), problem: (A) Desorting, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+        for(int i = 0;i < n;i++){
+            cin>>arr[i];
+        }
+        int difference = INT_MAX;
+        for(int i = 1;i < n;i++){
+            difference = min(difference,arr[i]-arr[i-1]);
+        }
+        if(difference < 0) cout<<0<<endl;
+        else cout<< (difference/2)+1 <<endl;
+    }
+    return 0;
+}
