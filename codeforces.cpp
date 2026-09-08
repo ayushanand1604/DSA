@@ -602,3 +602,33 @@ int main(){
     }
     return 0;
 }
+
+By ayush_anand123, contest: Codeforces Round 879 (Div. 2), problem: (A) Unit Array, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+        for(int i = 0;i < n;i++){
+            cin >> arr[i];
+        }
+        int count = 0;
+        int positiveOnes = 0;
+        int negativeOnes = 0;
+        for(int i = 0;i < n;i++){
+            if(arr[i] == 1) positiveOnes++;
+            else negativeOnes++;
+        }
+        while(positiveOnes < negativeOnes || negativeOnes % 2 == 1){
+            count++;
+            negativeOnes --;
+            positiveOnes ++;
+        }
+        cout<<count<<"\n";
+    }
+    return 0;
+}
