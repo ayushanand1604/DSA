@@ -654,4 +654,16 @@ int main() {
     return 0;
 }
 
-
+By ayush_anand123, contest: Educational Codeforces Round 146 (Rated for Div. 2), problem: (A) Coins, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        long long n,k;
+        cin>>n>>k;
+        cout<<(k % 2 == 1 || n % 2 == 0 ? "YES\n":"NO\n");
+    }
+    return 0;
+}
