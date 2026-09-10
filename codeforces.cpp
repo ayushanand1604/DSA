@@ -667,3 +667,32 @@ int main(){
     }
     return 0;
 }
+
+
+By ayush_anand123, contest: Codeforces Round 858 (Div. 2), problem: (A) Walking Master, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        int x1,y1,x2,y2;
+        cin>>x1>>y1>>x2>>y2;
+        int ans = 0;
+        int yDifference = y2-y1;
+        if(yDifference < 0){
+            cout<<"-1"<<endl;
+            continue;
+        }
+        x1+=yDifference;
+        ans+=yDifference;
+        int xDifference = x2-x1;
+        if(xDifference > 0){
+            cout<<"-1"<<endl;
+            continue;
+        }
+        ans += abs(xDifference);
+        cout<<ans<<endl;
+    }
+    return 0;
+}
