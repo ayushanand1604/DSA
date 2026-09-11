@@ -696,3 +696,25 @@ int main(){
     }
     return 0;
 }
+
+By ayush_anand123, contest: Codeforces Round 849 (Div. 4), problem: (C) Prepend and Append, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        cin >> s;
+        int left = 0;
+        int right = n-1;
+        while(left < right && s[left]!= s[right]){
+            left++;
+            right--;
+        }
+        cout<<right-left+1<<endl;
+    }
+    return 0;
+}
