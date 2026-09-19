@@ -749,3 +749,31 @@ int main() {
     }
     return 0;
 }
+
+
+By ayush_anand123, contest: Codeforces Round 845 (Div. 2) and ByteRace 2023, problem: (A) Everybody Likes Good Arrays!, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+        for(int i = 0;i < n;i++){
+            cin>> arr[i];
+        }
+        int count = 0;
+        int parity = 0;
+        if(arr[0]%2) parity = 1;
+        for(int i = 1;i < n;i++){
+            if(arr[i]%2==parity) count++;
+            else parity = (parity + 1)%2;
+        }
+        cout<<count<<endl;
+    }
+    return 0;
+}
