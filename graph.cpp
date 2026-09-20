@@ -24,3 +24,25 @@ class Solution {
         return ans;
     }
 };
+
+DFS GFG
+class Solution {
+  public:
+    void dfsRecursion(vector<vector<int>>& adj,int src,vector<bool> &visited,vector<int> &ans){
+        visited[src]=true;
+        ans.push_back(src);
+        for(int i:adj[src]){
+            if(visited[i]==false){
+                dfsRecursion(adj,i,visited,ans);
+            }
+        }
+    }
+    vector<int> dfs(vector<vector<int>>& adj) {
+        // Code here
+        int n = adj.size();
+        vector <bool> visited(n,false);
+        vector<int>ans;
+        dfsRecursion(adj,0,visited,ans);
+        return ans;
+    }
+};
