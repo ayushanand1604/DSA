@@ -835,3 +835,20 @@ int main() {
     }
     return 0;
 }
+
+By ayush_anand123, contest: Codeforces Round 1122 (Div. 3), problem: (B) Three Piles, Accepted, #, Copy, hack it!
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    while(t--){
+        long long a,b,c;
+        cin>>a>>b>>c;
+        long score = max(abs(a+c-b),abs(a-b));
+        cout<<score<<endl;
+    }    
+    return 0;
+}
