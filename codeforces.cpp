@@ -807,3 +807,31 @@ int main(){
     }
     return 0;
 }
+
+
+By ayush_anand123, contest: Codeforces Round 1122 (Div. 3), problem: (A) Good Contest, Accepted, #, Copy, hack it!
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<int> arr(3);
+        for(int i = 0;i < 3;i++){
+            cin>>arr[i];
+        }
+        int participant = 0;
+        for(int i = 0;i<3;i++){
+            if(arr[i]==n) continue;
+            else{
+                if(participant<(n-arr[i])) participant=(n-arr[i]);
+            }
+        }
+        cout<<participant<<endl;
+    }
+    return 0;
+}
