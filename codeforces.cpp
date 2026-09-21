@@ -852,3 +852,32 @@ int main() {
     }    
     return 0;
 }
+
+By ayush_anand123, contest: Codeforces Round 1122 (Div. 3), problem: (D) Falling Concrete, Accepted, #, Copy, hack it!
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<long long> arr(n);
+        for(int i = 0 ;i < n;i++){
+            long long a ;
+            cin >> a;
+            arr[i]=a-(i+1);
+        }
+        sort(arr.begin(),arr.end());
+        int ans = 1;
+        int flatpart = 1;
+        for(int i = 1;i< n;i++){
+            if(arr[i]==arr[i-1]+1) flatpart++;
+            else if(arr[i]==arr[i-1]) continue;
+            else flatpart =1;
+            ans = max(ans,flatpart);
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}
