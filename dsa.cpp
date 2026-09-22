@@ -5307,3 +5307,19 @@ public:
         return atMost(nums, goal) - atMost(nums, goal - 1);
     }
 };
+
+4056. Number of Intersecting Interval Pairs I leetcode 
+class Solution {
+public:
+    int countIntersectingIntervals(vector<vector<int>>& intervals) {
+        int count = 0;
+        for(int i = 0;i < intervals.size();i++){
+            for(int j = i+1;j < intervals.size();j++){
+                int firstPoint =  max(intervals[i][0],intervals[j][0]);
+                int secondPoint = min(intervals[i][1],intervals[j][1]);
+                if(firstPoint <= secondPoint) count++;
+            }
+        }
+        return count;
+    }
+};
