@@ -198,3 +198,24 @@ public:
         return isPowerOfTwo(n/2);
     }
 };
+
+//Subset Sums gfg
+class Solution {
+  public:
+    void functionSubset(int index,int sum, vector<int>&arr,int N,vector<int>&ans){
+        if(index == N){
+            ans.push_back(sum);
+            return;
+        }
+        functionSubset(index+1,sum + arr[index],arr,N,ans);
+        functionSubset(index+1,sum,arr,N,ans);
+    }
+    vector<int> subsetSums(vector<int>& arr) {
+        // code here
+        vector<int> ans;
+        int N = arr.size();
+        functionSubset(0,0,arr,N,ans);
+        sort(ans.begin(),ans.end());
+        return ans;
+    }
+};
