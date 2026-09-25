@@ -882,3 +882,20 @@ int main(){
     return 0;
 }
 
+By ayush_anand123, contest: Educational Codeforces Round 139 (Rated for Div. 2), problem: (A) Extremely Round, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        string s = to_string(n);
+        int totalDigits = s.size();
+        int firstDigit = s[0]-'0';
+        int ans = (totalDigits-1)*9+firstDigit;
+        cout<<ans<<endl;
+    }
+    return 0;
+}
