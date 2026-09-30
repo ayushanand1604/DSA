@@ -5392,3 +5392,29 @@ public:
         return false;
     }
 };
+
+
+2537. Count the Number of Good Subarrays leetcode
+class Solution {
+public:
+    long long countGood(vector<int>& nums, int k) {
+        int n = nums.size();
+        int i = 0;
+        int j = 0;
+        long long count = 0;
+        long long pairs = 0;
+        unordered_map<int,int> mpp;
+        while(j<nums.size()){
+            pairs += mpp[nums[j]];
+            mpp[nums[j]]++;
+            while(pairs >= k){
+                count += (n-j);
+                mpp[nums[i]]--;
+                pairs -= mpp[nums[i]];
+                i++;
+            }
+            j++;
+        }
+        return count;
+    }
+};
