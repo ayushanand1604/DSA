@@ -5418,3 +5418,21 @@ public:
         return count;
     }
 };
+
+
+633. Sum of Square Numbers leetcode
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        long long n = sqrt(c);
+        long long i = 0;
+        long long j = n;
+        while(i<=j){
+            long long sum = (i*i)+(j*j);
+            if(sum == c)return true;
+            else if(sum < c) i++;
+            else j--;
+        }
+        return false;
+    }
+};
