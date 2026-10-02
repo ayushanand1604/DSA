@@ -5450,3 +5450,22 @@ public:
         return sum;
     }
 };
+
+724. Find Pivot Index letcode
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        int rightSum = 0;
+        for(int i = 0;i < nums.size();i++){
+            rightSum += nums[i];
+        }
+        int leftSum = 0;
+        for(int i = 0;i < nums.size();i++){
+            int val = nums[i];
+            rightSum -= val;
+            if(leftSum == rightSum) return i;
+            leftSum += val;
+        }
+        return -1;
+    }
+};
