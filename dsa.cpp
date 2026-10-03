@@ -5469,3 +5469,29 @@ public:
         return -1;
     }
 };
+
+128. Longest Consecutive Sequence leetcode
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if(nums.size()==0) return 0;
+        unordered_map<int,int>mpp;
+        int maxlength = 1;
+        for(int i = 0;i < nums.size();i++){
+            mpp[nums[i]]++;
+        }
+        for(auto it:mpp){
+            int x = it.first;
+            if(mpp.find(x-1)==mpp.end()){
+                int current = x;
+                int length = 1;
+                while(mpp.find(current + 1)!=mpp.end()){
+                    current++;
+                    length++;
+                }
+                maxlength = max(length,maxlength);
+            }
+        }
+        return maxlength;
+    }
+};
