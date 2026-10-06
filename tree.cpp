@@ -419,3 +419,39 @@ class Solution {
         return floor;
     }
 };
+
+206. Floor and Ceil in a BST striver gfg
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     int data;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *      TreeNode(int val) : data(val) , left(nullptr) , right(nullptr) {}
+ * };
+ **/
+
+class Solution{	
+	public:
+		vector<int> floorCeilOfBST(TreeNode* root,int key){
+			//your code goes here
+            int floor = -1;
+            int ceil = -1;
+            while(root != nullptr){
+                if(root->data == key){
+                    floor = key;
+                    ceil = key;
+                    break;
+                }
+                else if(root->data < key){
+                    floor = root->data;
+                    root = root->right;
+                }
+                else{
+                    ceil = root->data;
+                    root = root->left;
+                }
+            }
+            return {floor,ceil};
+		}
+};
