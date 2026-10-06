@@ -349,3 +349,37 @@ public:
         return root;
     }
 };
+
+
+Ceil in BST gfg
+/*
+Definition for Node
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};
+*/
+
+class Solution {
+  public:
+    int findCeil(Node* root, int x) {
+        // code here
+        int ceil = -1;
+        while(root != nullptr){
+            if(root->data == x) return x;
+            else if(root->data < x) root=root->right;
+            else{
+                ceil = root->data;
+                root = root->left;
+            }
+        }
+        return ceil;
+    }
+};
