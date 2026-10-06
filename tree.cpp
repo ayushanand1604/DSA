@@ -383,3 +383,39 @@ class Solution {
         return ceil;
     }
 };
+
+
+Floor in BST gfg
+/*
+Definition for Node
+class Node {
+  public:
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+}; */
+
+class Solution {
+  public:
+    int findMaxFork(Node* root, int k) {
+        // code here
+        int floor = -1;
+        while(root != nullptr){
+            if(root->data == k){
+                floor = root->data;
+                return floor;
+            }
+            else if(root->data < k){
+                floor = root->data;
+                root = root->right;
+            }
+            else root = root->left;
+        }
+        return floor;
+    }
+};
