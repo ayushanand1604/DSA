@@ -946,3 +946,47 @@ int main(){
     }
     return 0;
 }
+
+//By ayush_anand123, contest: Codeforces Round 1125 (Div. 3), problem: (B) Did Not Go to Print, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        stack<int> st;
+        vector<bool> printed(n+1,false);
+        for(int i=1;i<=n;i++){
+            if(s[i-1]=='1'){
+                st.push(i);
+            }
+            else if(s[i-1] == '2'){
+                if(!st.empty()){
+                    int x = st.top();
+                    st.pop();
+                    printed[x] = true;
+                }
+                else{
+                    printed[i]=true;
+                }
+            }
+            else{
+                printed[i] = true;
+            }
+        }
+        vector<int> ans;
+        for(int i = 1;i <=n;i++){
+            if(!printed[i]) ans.push_back(i);
+        }
+        cout<<ans.size()<<endl;
+        for(int i =0;i<ans.size();i++){
+            cout<<ans[i]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
