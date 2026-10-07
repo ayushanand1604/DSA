@@ -933,3 +933,16 @@ int main(){
     return 0;
 }
 
+//By ayush_anand123, contest: Codeforces Round 1125 (Div. 3), problem: (A) In Search of Convenience, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int x0,y0,r;
+        cin>>x0>>y0>>r;
+        cout<<x0 + r<<" "<<y0<<endl;
+    }
+    return 0;
+}
