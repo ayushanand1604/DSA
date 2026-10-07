@@ -990,3 +990,37 @@ int main(){
     }
     return 0;
 }
+
+
+//By ayush_anand123, contest: Codeforces Round 1125 (Div. 3), problem: (C) Unrequited Love, Accepted, #, Copy
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<long long> arr(n);
+        for(int i =0;i<n;i++){
+            cin>>arr[i];
+        }
+        int x=n-4;
+        vector<long long>val(x);
+        for(int i=0;i<x;i++){
+            val[i] = arr[i]+arr[i+2]-arr[i+4];
+        }
+        map<long long,long long> freq;
+        long long ans = 0;
+        for(int i=0;i<x;i++){
+            ans += freq[val[i]];
+            freq[val[i]]++;
+        }
+        for(int i=0;i<x;i++){
+            if(i>=2&&val[i]==val[i-2]) ans--;
+            if(i>=4&&val[i]==val[i-4]) ans--;
+        } 
+        cout<<ans<<endl;
+    }
+    return 0;
+}
