@@ -493,3 +493,75 @@ public:
         return root;
     }
 };
+
+2476. Closest Nodes Queries in a Binary Search Tree leetcode
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    void inorder(TreeNode* root, vector<int>&v){
+        if(root == NULL){
+            return;
+        }
+        inorder(root->left,v);
+        v.push_back(root->val);
+        inorder(root->right,v);
+    }
+    int findSmaller(vector<int> &v,int x){
+        int low = 0;
+        int high = v.size()-1;
+        int ans = -1;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            if(v[mid] > x){
+                high = mid - 1;
+            }
+            else if(v[mid] < x){
+                ans = v[mid];
+                low = mid + 1;
+            }
+            else{
+                return x;
+            }
+        }
+        return ans;
+    }
+    int findGreater(vector<int> &v,int x){
+        int low = 0;
+        int high = v.size()-1;
+        int ans = -1;
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(v[mid] > x){
+                ans = v[mid];
+                high = mid-1;
+            }
+            else if(v[mid] < x){
+                low = mid + 1;
+            }
+            else{
+                return x;
+            }
+        }
+        return ans;
+    }
+    vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) {
+        vector<int>v;
+        inorder(root,v);
+        vector<vector<int>>ans(queries.size());
+        for(int i = 0;i < queries.size(); i++){
+            ans[i].push_back(findSmaller(v,queries[i]));
+            ans[i].push_back(findGreater(v,queries[i]));
+        }
+        return ans;
+    }
+};
