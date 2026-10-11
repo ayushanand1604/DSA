@@ -5636,3 +5636,28 @@ public:
         return false;
     }
 };
+
+Q2. Prime Subset Selection I leetcode 523
+class Solution {
+public:
+    vector<int> maxPrimes(int n, int s) {
+        vector<bool> prime(n+1,true);
+        prime[0] = false;
+        prime[1] = false;
+        for(int i = 2;1LL*i*i<=n;i++){
+            if(!prime[i]) continue;
+            for(int j = i*i;j<=n;j= j+i){
+                prime[j] = false;
+            }
+        }
+        vector<int>ans;
+        int sum = 0;
+        for(int i = 2;i < n+1;i++){
+            if(!prime[i]) continue;
+            sum += i;
+            if(sum <= s) ans.push_back(i);
+            else break;
+        }
+        return ans;
+    }
+};
