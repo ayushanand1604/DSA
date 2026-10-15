@@ -5662,3 +5662,30 @@ public:
     }
 };
 
+
+3. Longest Substring Without Repeating Characters leetcode
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = s.size();
+        unordered_map<char,int>mpp;
+        int count = 0;
+        int ans = 0;
+        int i = 0;
+        int l = 0;
+        while(i<n){
+            if(mpp.find(s[i])!= mpp.end() && mpp[s[i]]>0){
+                mpp[s[l]]--;
+                l++;
+                count--;
+            }
+            else{
+                count++;
+                ans = max(ans,count);
+                mpp[s[i]]++;
+                i++;
+            }
+        }        
+        return ans;
+    }
+};
