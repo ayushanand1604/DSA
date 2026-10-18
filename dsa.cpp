@@ -5690,6 +5690,7 @@ public:
     }
 };
 
+
 1838. Frequency of the Most Frequent Element leetcode
 class Solution {
 public:
@@ -5713,6 +5714,7 @@ public:
     }
 };
 
+
 367. Valid Perfect Square leetcode 
 class Solution {
 public:
@@ -5725,6 +5727,21 @@ public:
             if((mid * mid) == num) return true;
             else if(mid * mid > num) right = mid-1;
             else left = mid+1;
+        }
+        return false;
+    }
+};
+
+219. Contains Duplicate II leetcode
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int,int> mpp;
+        for(int i = 0 ;i < nums.size(); i++){
+            if(mpp.find(nums[i])!=mpp.end()){
+                if(abs(i-mpp[nums[i]]) <= k) return true;
+            }
+            mpp[nums[i]] = i;
         }
         return false;
     }
