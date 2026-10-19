@@ -5746,3 +5746,35 @@ public:
         return false;
     }
 };
+
+
+290. Word Pattern
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        vector<string> words;
+        string word = "";
+        for(int i = 0; i < s.size(); i++){
+            if(s[i] == ' '){
+                words.push_back(word);
+                word = "";
+            } 
+            else{
+                word += s[i];
+            }
+        }
+        words.push_back(word);
+        if(pattern.size() != words.size()) return false;
+        unordered_map<char, string> a;
+        unordered_map<string, char> b;
+        for(int i = 0; i < pattern.size(); i++){
+            char ch = pattern[i];
+            string word = words[i];
+            if (a.count(ch) && a[ch] != word) return false;
+            if (b.count(word) && b[word] != ch) return false;
+            a[ch] = word;
+            b[word] = ch;
+        }
+        return true;
+    }
+};
