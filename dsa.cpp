@@ -5815,3 +5815,29 @@ public:
         return false;
     }
 };
+
+
+Minimum Platforms gfg
+class Solution {
+  public:
+    int minPlatform(vector<int>& arr, vector<int>& dep) {
+        // code here
+        sort(arr.begin(),arr.end());
+        sort(dep.begin(),dep.end());
+        int platform = 0;
+        int maxCount = 0;
+        int i,j = 0;
+        while(i < arr.size()){
+            if(arr[i] <= dep[j]){
+                platform++;
+                i++;
+            }
+            else{
+                platform--;
+                j++;
+            }
+            maxCount = max(maxCount,platform);
+        }
+        return maxCount;
+    }
+};
