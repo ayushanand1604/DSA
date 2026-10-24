@@ -5856,3 +5856,21 @@ public:
         return ans;
     }
 };
+
+1346. Check If N and Its Double Exist
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        unordered_map<int,int>mpp;
+        for(int i = 0;i < arr.size();i++){
+            mpp[arr[i]]++;
+        }
+        for(int i = 0;i < arr.size();i++){
+            int target = 2 * arr[i];
+            if(mpp.count(target)){
+                if(target != arr[i] || mpp[target] > 1) return true;
+            }
+        }
+        return false;
+    }
+};
