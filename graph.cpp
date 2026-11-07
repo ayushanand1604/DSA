@@ -1,7 +1,7 @@
 BFS GFG
 class Solution {
   public:
-    vector<int> bfs(vector<vector<int>> &adj) {
+    vector<int> bfs(vector<vector<int>> &adj){
         // code here
         int n = adj.size();
         vector<int> ans;
@@ -24,6 +24,7 @@ class Solution {
         return ans;
     }
 };
+
 
 DFS GFG
 class Solution {
