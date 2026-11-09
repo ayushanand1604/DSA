@@ -1,7 +1,6 @@
 // kth number which is numbers not divisible by n
 #include <bits/stdc++.h>
-using namespace std;
- 
+using namespace std; 
 int main() {
     int t;
     cin >> t;
