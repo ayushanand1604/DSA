@@ -5921,3 +5921,25 @@ public:
         return sum;
     }
 };
+
+1046. Last Stone Weight
+class Solution {
+public:
+    int lastStoneWeight(vector<int>& stones) {
+        priority_queue<int> pq;
+        for(int i = 0;i < stones.size();i++){
+            pq.push(stones[i]);
+        }
+        while(pq.size()!=1){
+            int y = pq.top();
+            pq.pop();
+            if(!pq.empty()){
+                int x = pq.top();
+                pq.pop();
+                pq.push(y-x);
+            }
+            else return pq.top();
+        }
+        return pq.top();
+    }
+};
