@@ -5966,3 +5966,22 @@ public:
         return ans;
     }
 };
+
+4111. Count Consistent Subarrays I leetcode
+class Solution {
+public:
+    int countConsistent(vector<int>& nums) {
+        int n = nums.size();
+        int count = 0;
+        for(int i = 0;i < n;i++){
+            int minm = INT_MAX;
+            int val = nums[i];
+            for(int j = i;j < n;j++){
+                minm = min(minm,nums[j]);
+                val = val & nums[j];
+                if(val == minm) count++;
+            }
+        }
+        return count;
+    }
+};
