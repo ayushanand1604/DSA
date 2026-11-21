@@ -5985,3 +5985,31 @@ public:
         return count;
     }
 };
+
+697. Degree of an Array leetcode
+class Solution {
+public:
+    int findShortestSubArray(vector<int>& nums) {
+        unordered_map<int,int> mpp;
+        unordered_map<int,int> first;
+        unordered_map<int,int> last;
+        int degree = 0;
+        int count = nums.size();
+        for(int i = 0;i < nums.size();i++){
+            int x = nums[i];
+            mpp[x]++;
+            if(first.find(x)==first.end()){
+                first[x]=i;
+            }
+            last[x]=i;
+            degree = max(degree,mpp[x]);
+        }
+        for(auto it: mpp){
+            int y = it.first;
+            if(it.second==degree){
+                count = min(count,last[y]-first[y]+1);
+            }
+        }
+        return count;
+    }
+};
